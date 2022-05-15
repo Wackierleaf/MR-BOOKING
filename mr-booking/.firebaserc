@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "mr-b00king": {
+      "hosting": {
+        "mr-booking": [
+          "mr-b00king"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "mr-b00king"
+  }
+}
