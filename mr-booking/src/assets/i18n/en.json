@@ -1,4 +1,7 @@
 {
+	"COMMON": {
+		"CANCEL": "Cancel"
+	},
 	"LOGIN": {
 		"EMAIL-ERROR": "Please enter a valid email",
 		"EMAIL-LABEL": "Enter your email",
@@ -7,5 +10,19 @@
 		"PASSWORD-LABEL": "Enter your password",
 		"REGISTRATION": "Registration",
 		"SIGN-IN": "Login"
+	},
+	"REGISTRATION": {
+		"CITY": "Enter your city",
+		"EMAIL": "Email",
+		"ERRORS": {
+			"NOT-SAME": "Passwords do not match"
+		},
+		"GENERAL-SECTION": "General information",
+		"HEADER": "Registration",
+		"NAME": "Your full name",
+		"PASSWORD": "Password",
+		"PASSWORD-CONFIRMATION": "Confirm your password",
+		"PASSWORD-SECTION": "Password",
+		"REGISTER": "Register"
 	}
 }

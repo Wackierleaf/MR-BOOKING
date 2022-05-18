@@ -1,1 +1,53 @@
-<p>sign-up works!</p>
+<h1>{{'REGISTRATION.HEADER' | translate}}</h1>
+<div mat-dialog-content class="dialog-content">
+  <form [formGroup]="registrationForm">
+    <h3>{{'REGISTRATION.GENERAL-SECTION' | translate}}</h3>
+    <mat-divider></mat-divider>
+    <div class="general-section">
+      <!--    NAME-->
+      <mat-form-field appearance="outline">
+        <mat-label>{{'REGISTRATION.NAME' | translate}}</mat-label>
+        <input matInput formControlName="name">
+      </mat-form-field>
+      <!--    EMAIL-->
+      <mat-form-field appearance="outline">
+        <mat-label>{{'REGISTRATION.EMAIL' | translate}}</mat-label>
+        <input matInput formControlName="email">
+        <mat-error>{{'LOGIN.EMAIL-ERROR' | translate}}</mat-error>
+      </mat-form-field>
+      <!--    CITY-->
+      <mat-form-field appearance="outline">
+        <mat-label>{{'REGISTRATION.CITY' | translate}}</mat-label>
+        <input matInput formControlName="city">
+      </mat-form-field>
+    </div>
+
+    <h3>{{'REGISTRATION.PASSWORD-SECTION' | translate}}</h3>
+    <mat-divider></mat-divider>
+    <div class="password-section">
+      <!--    PASSWORD-->
+      <mat-form-field appearance="outline">
+        <mat-label>{{'REGISTRATION.PASSWORD' | translate}}</mat-label>
+        <input [type]="hide ? 'password' : 'text'" matInput formControlName="password">
+        <button type="button" mat-icon-button matSuffix (click)="hide = !hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error>{{'LOGIN.PASSWORD-ERROR' | translate}}</mat-error>
+      </mat-form-field>
+
+      <!--    PASSWORD CONFIRMATION-->
+      <mat-form-field appearance="outline">
+        <mat-label>{{'REGISTRATION.PASSWORD-CONFIRMATION' | translate}}</mat-label>
+        <input [errorStateMatcher]="errorMatcher" [type]="hideRepeatedPassword ? 'password' : 'text'" matInput  formControlName="repeatedPassword">
+        <button type="button" mat-icon-button matSuffix (click)="hideRepeatedPassword = !hideRepeatedPassword">
+          <mat-icon>{{hideRepeatedPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="registrationForm.hasError('notSame')">{{'REGISTRATION.ERRORS.NOT-SAME' | translate}}</mat-error>
+      </mat-form-field>
+    </div>
+  </form>
+  <div class="btn-container">
+    <button type="button" mat-raised-button (click)="close()">{{'COMMON.CANCEL' | translate}}</button>
+    <button type="button" [disabled]="registrationForm.invalid" mat-raised-button color="primary" (click)="submitRegisterForm()">{{'REGISTRATION.REGISTER' | translate}}</button>
+  </div>
+</div>

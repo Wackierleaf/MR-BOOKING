@@ -1,14 +1,24 @@
 :host {
   display: flex;
-  justify-content: space-around;
   flex-direction: column;
   width: 100vw;
   height: 100vh;
 }
 
+.logo-image {
+  margin-top: 50px;
+  background-image: url('../../../assets/icons/icon-512x512.png');
+  background-size: cover;
+  border-radius: 50%;
+  object-fit: cover;
+  height: 180px;
+  width: 180px;
+  align-self: center;
+}
 
 .login-form-container {
   align-self: center;
+  margin-top: 30px;
   width: 40%;
 
   form {

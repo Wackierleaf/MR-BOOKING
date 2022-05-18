@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../shared/services/auth.service";
 import {Router} from "@angular/router";
 import {MatDialog} from "@angular/material/dialog";
+import {SignUpComponent} from "../sign-up/sign-up.component";
 
 @Component({
   selector: 'app-sign-in',
@@ -29,7 +30,10 @@ export class SignInComponent implements OnInit {
   }
 
   openRegistrationWindow() {
-
+    const dialogRef = this.dialog.open(SignUpComponent, {
+      width: 'fit-content',
+      height: 'fit-content'
+    })
   }
 
   login() {

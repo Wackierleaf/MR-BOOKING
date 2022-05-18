@@ -1,4 +1,7 @@
 {
+	"COMMON": {
+		"CANCEL": "Отменить"
+	},
 	"LOGIN": {
 		"EMAIL-ERROR": "Введите правильный email",
 		"EMAIL-LABEL": "Введите email",
@@ -7,5 +10,19 @@
 		"PASSWORD-LABEL": "Введите пароль",
 		"REGISTRATION": "Регистрация",
 		"SIGN-IN": "Войти"
+	},
+	"REGISTRATION": {
+		"CITY": "Введите свой город",
+		"EMAIL": "Email",
+		"ERRORS": {
+			"NOT-SAME": "Пароли не совпадают"
+		},
+		"GENERAL-SECTION": "Ваши данные",
+		"HEADER": "Регистрация",
+		"NAME": "Полное имя",
+		"PASSWORD": "Пароль",
+		"PASSWORD-CONFIRMATION": "Повторите пароль",
+		"PASSWORD-SECTION": "Пароль",
+		"REGISTER": "Зарегистрироваться"
 	}
 }
