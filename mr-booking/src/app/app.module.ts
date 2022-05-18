@@ -21,7 +21,7 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {AngularFireModule} from "@angular/fire/compat";
 
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
+  return new TranslateHttpLoader(http, 'http://localhost:4200/assets/locales/', '.json');
 }
 
 @NgModule({
