@@ -19,9 +19,10 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {AngularFireModule} from "@angular/fire/compat";
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, 'http://localhost:4200/assets/locales/', '.json');
+  return new TranslateHttpLoader(http);
 }
 
 @NgModule({
@@ -53,7 +54,13 @@ export function HttpLoaderFactory(http: HttpClient) {
     provideDatabase(() => getDatabase()),
     AngularFireModule.initializeApp(environment.firebase),
     provideFirestore(() => getFirestore()),
-    provideStorage(() => getStorage())
+    provideStorage(() => getStorage()),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
