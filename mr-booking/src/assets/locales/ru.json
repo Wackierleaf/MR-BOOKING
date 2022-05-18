@@ -1,0 +1,11 @@
+{
+	"LOGIN": {
+		"EMAIL-ERROR": "Введите правильный email",
+		"EMAIL-LABEL": "Введите email",
+		"EMAIL-PLACEHOLDER": "pat@example.com",
+		"PASSWORD-ERROR": "Введите правильный пароль",
+		"PASSWORD-LABEL": "Введите пароль",
+		"REGISTRATION": "Регистрация",
+		"SIGN-IN": "Войти"
+	}
+}

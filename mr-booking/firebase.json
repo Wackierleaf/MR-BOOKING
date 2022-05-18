@@ -1,7 +1,7 @@
 {
   "hosting": {
     "target": "mr-booking",
-    "public": "dist/mr-booking",
+    "public": "./dist/mr-booking",
     "ignore": [
       "**/.*"
     ],

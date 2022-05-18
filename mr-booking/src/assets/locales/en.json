@@ -1,0 +1,11 @@
+{
+	"LOGIN": {
+		"EMAIL-ERROR": "Please enter a valid email",
+		"EMAIL-LABEL": "Enter your email",
+		"EMAIL-PLACEHOLDER": "pat@example.com",
+		"PASSWORD-ERROR": "Please enter a valid password",
+		"PASSWORD-LABEL": "Enter your password",
+		"REGISTRATION": "Registration",
+		"SIGN-IN": "Login"
+	}
+}
