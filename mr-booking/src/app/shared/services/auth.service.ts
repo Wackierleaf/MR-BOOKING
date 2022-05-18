@@ -46,12 +46,30 @@ export class AuthService {
     })
   }
 
-  signUp(email: string, password: string) {
+  signUp(email: string, password: string, name: string, city: string) {
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
         this.sendVerificationMail();
-        this.setUserData(result.user);
+        const {user} = result;
+        if (user) {
+          const userRef: AngularFirestoreDocument<any> = this.afs.doc(
+            `users/${result?.user?.uid}`
+          )
+
+          const userData: User = {
+            uid: user.uid,
+            email: user.email,
+            displayName: name,
+            city: city,
+            photoURL: user.photoURL,
+            emailVerified: user.emailVerified
+          }
+
+          userRef.set(userData, {
+            merge: true
+          })
+        }
       })
       .catch((error) => {
         window.alert(error.message);
@@ -73,13 +91,14 @@ export class AuthService {
 
   setUserData(user: any) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(
-      `users/${user.id}`
+      `users/${user.uid}`
     )
 
     const userData: User = {
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,
+      city: user.city,
       photoURL: user.photoURL,
       emailVerified: user.emailVerified
     }

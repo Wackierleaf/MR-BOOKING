@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators} from "@angular/forms";
 import {MatDialogRef} from "@angular/material/dialog";
 import {MyErrorStateMatcher} from "../../shared/services/ErrorStateMatcher";
+import {AuthService} from "../../shared/services/auth.service";
 
 @Component({
   selector: 'app-sign-up',
@@ -18,6 +19,7 @@ export class SignUpComponent implements OnInit {
   constructor(
     private readonly dialogRef: MatDialogRef<SignUpComponent>,
     private readonly formBuilder: FormBuilder,
+    private readonly authService: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -37,7 +39,10 @@ export class SignUpComponent implements OnInit {
     return pass === confirmPass ? null : { notSame: true }
   }
 
-  submitRegisterForm() {}
+  submitRegisterForm() {
+    const {name, email, city, password} = this.registrationForm.value
+    this.authService.signUp(email, password, name, city).then(() => this.close())
+  }
 
   close() {
     this.dialogRef.close();

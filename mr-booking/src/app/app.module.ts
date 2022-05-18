@@ -20,6 +20,7 @@ import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {AngularFireModule} from "@angular/fire/compat";
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -30,7 +31,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     SignInComponent,
     SignUpComponent,
-    MainComponent
+    MainComponent,
+    VerifyEmailComponent
   ],
   imports: [
     FormsModule,
