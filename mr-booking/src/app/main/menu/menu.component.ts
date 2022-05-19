@@ -15,13 +15,20 @@ export class MenuComponent implements OnInit {
     public readonly authService: AuthService,
     private readonly userService: UserService
   ) {
-    this.authService.userData?.subscribe(data =>
-      this.userName = this.userService.getUser(data.uid).pipe(
-        map(user => user.displayName as string)
-      )
+
+
+    this.authService.afAuth.authState.subscribe(data => {
+        if (data) {
+          this.userName = this.userService.getUser(data.uid).pipe(
+            // @ts-ignore
+            map(user => user.displayName as string)
+          )
+        }
+      }
     )
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
 }

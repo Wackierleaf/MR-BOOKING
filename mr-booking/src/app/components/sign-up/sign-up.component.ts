@@ -41,7 +41,8 @@ export class SignUpComponent implements OnInit {
 
   submitRegisterForm() {
     const {name, email, city, password} = this.registrationForm.value
-    this.authService.signUp(email, password, name, city).then(() => this.close())
+    this.authService.signUp(email, password, name, city)
+    this.close()
   }
 
   close() {

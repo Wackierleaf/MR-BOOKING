@@ -8,16 +8,12 @@ import {map, Observable} from "rxjs";
   providedIn: 'root'
 })
 export class UserService {
- userCollection: Observable<any>;
 
   constructor(
     private afs: AngularFirestore,
   ) {}
 
   getUser(id: string) {
-    return this.userCollection = this.afs.collection('users', ref =>
-      ref.where('uid', '==', id)
-    ) .valueChanges()
-      .pipe(map(user => user[0] as User))
+    return this.afs.doc<User>(`users/${id}`).valueChanges()
   }
 }
