@@ -21,6 +21,8 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {AngularFireModule} from "@angular/fire/compat";
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
+import {MainModule} from "./main/main.module";
+import {UserService} from "./shared/services/user.service";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -35,6 +37,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     VerifyEmailComponent
   ],
   imports: [
+    MainModule,
     FormsModule,
     HttpClientModule,
     BrowserModule,
@@ -64,7 +67,10 @@ export function HttpLoaderFactory(http: HttpClient) {
       registrationStrategy: 'registerWhenStable:30000'
     })
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    UserService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -11,6 +11,16 @@
 		"REGISTRATION": "Registration",
 		"SIGN-IN": "Login"
 	},
+	"MAIN": {
+		"HEADER": "MR Booking",
+		"LANGUAGES": {
+			"ENGLISH": "English",
+			"RUSSIAN": "Russian"
+		},
+		"MENU": {
+			"LOGOUT": "Logout"
+		}
+	},
 	"REGISTRATION": {
 		"CITY": "Enter your city",
 		"EMAIL": "Email",

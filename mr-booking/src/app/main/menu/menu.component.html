@@ -1,0 +1,18 @@
+<div class="menu-content">
+  <div class="info-block">
+    <div class="avatar emulator">
+      <mat-icon>person</mat-icon>
+    </div>
+    <div class="name-section">
+      <span>{{userName | async}}</span>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="logout" (click)="authService.signOut()">
+    <button mat-icon-button>
+      <mat-icon>logout</mat-icon>
+    </button>
+    <span>{{'MAIN.MENU.LOGOUT' | translate}}</span>
+  </div>
+</div>
+

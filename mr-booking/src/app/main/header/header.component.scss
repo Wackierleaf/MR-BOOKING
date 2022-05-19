@@ -1,0 +1,54 @@
+$avatar-size: 46px;
+$avatar-color: silver;
+$second-color: #7c7c7c;
+$icon-size: 32px;
+
+@mixin avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 100%;
+  border-color: white;
+  width: $avatar-size;
+  height: $avatar-size;
+}
+
+.emulator {
+  @include avatar;
+  cursor: pointer;
+  background: $avatar-color;
+  font-weight: bold;
+  font-size: $avatar-size / 2 - 4px;
+  color: lighten(complement($avatar-color), 40%);
+}
+
+.toolbar-content {
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.art-icon {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  .icon {
+    margin-right: 10px;
+    margin-left: 10px;
+    font-size: $icon-size;
+    width: $icon-size;
+    height: $icon-size;
+  }
+}
+.red {
+  color: palevioletred;
+}
+
+.white {
+  color: white;
+}

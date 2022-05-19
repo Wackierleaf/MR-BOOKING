@@ -1,0 +1,39 @@
+@import "src/app/main/header/header.component";
+
+$space-between-menu-sections: 6px;
+
+.emulator {
+  @include avatar;
+  cursor: pointer;
+  background: $avatar-color;
+  font-weight: bold;
+  width: $avatar-size + 20px;
+  height: $avatar-size + 20px;
+  font-size: $avatar-size + 5px / 2 - 4px;
+  color: lighten(complement($avatar-color), 40%);
+}
+
+.menu-content {
+  padding: 9px;
+}
+
+.info-block {
+  display: flex;
+  flex-wrap: nowrap;
+  padding-bottom: $space-between-menu-sections;
+
+  .name-section {
+    height: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    align-self: center;
+    margin-left: 10px;
+  }
+}
+
+.logout {
+  display: flex;
+  align-items: center;
+  padding-top: $space-between-menu-sections;
+  cursor: pointer;
+}
