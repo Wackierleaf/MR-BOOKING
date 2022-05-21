@@ -1,5 +1,8 @@
 <mat-toolbar color="primary">
   <div class="toolbar-content">
+    <button mat-icon-button (click)="navigationToggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
     <button mat-icon-button (click)="switchLang()">
       <mat-icon
         [ngClass]="isRuLang ? 'white' : 'red'"

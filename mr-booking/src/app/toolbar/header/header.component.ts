@@ -1,7 +1,6 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
-import { marker as _ } from '@biesbjerg/ngx-translate-extract-marker';
-import {User} from "../../shared/services/user";
+import {marker as _} from '@biesbjerg/ngx-translate-extract-marker';
 
 @Component({
   selector: 'app-header',
@@ -9,11 +8,12 @@ import {User} from "../../shared/services/user";
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  @Output() sidenavOpen: EventEmitter<any> = new EventEmitter<any>()
 
   isRuLang = true;
 
   constructor(
-    private readonly translationService: TranslateService
+    private readonly translationService: TranslateService,
   ) { }
 
   get translationKey() {
@@ -23,6 +23,10 @@ export class HeaderComponent {
   switchLang() {
     this.isRuLang = !this.isRuLang;
     this.translationService.use(this.isRuLang ? 'ru' : 'en');
+  }
+
+  navigationToggle() {
+    this.sidenavOpen.emit()
   }
 
 }

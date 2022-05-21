@@ -21,4 +21,4 @@ import { MenuComponent } from './menu/menu.component';
     TranslateModule
   ]
 })
-export class MainModule { }
+export class ToolbarModule { }

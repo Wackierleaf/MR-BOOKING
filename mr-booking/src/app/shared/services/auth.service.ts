@@ -29,7 +29,7 @@ export class AuthService {
 
   async signIn(email: string, password: string) {
     await this.afAuth.signInWithEmailAndPassword(email, password)
-    await this.router.navigate(['main'])
+    await this.router.navigate(['sidenav'])
   }
 
   async signUp(email: string, password: string, name: string, city: string) {
@@ -76,6 +76,6 @@ export class AuthService {
   async signOut() {
     await this.afAuth.signOut()
     localStorage.removeItem('user');
-    await this.router.navigate(['sign-in']);
+    await this.router.navigate(['login']);
   }
 }
