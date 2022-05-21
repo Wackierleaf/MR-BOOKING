@@ -16,7 +16,7 @@ const routes: Routes = [
     data: {authGuardPipe: redirectLoggedInToSideNav}
   },
   {
-    path: 'sidenav',
+    path: '',
     component: SidenavComponent,
     children: [
       {

@@ -21,6 +21,11 @@
 			"LOGOUT": "Выйти"
 		}
 	},
+	"NAVIGATION": {
+		"MEETINGS_MANAGEMENT": "Встречи",
+		"ROOMS_MANAGEMENT": "Переговорные комнаты",
+		"USER_MANAGEMENT": "Пользователи"
+	},
 	"REGISTRATION": {
 		"CITY": "Введите свой город",
 		"EMAIL": "Email",

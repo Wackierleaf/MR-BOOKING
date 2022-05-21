@@ -21,6 +21,11 @@
 			"LOGOUT": "Logout"
 		}
 	},
+	"NAVIGATION": {
+		"MEETINGS_MANAGEMENT": "Meetings Management",
+		"ROOMS_MANAGEMENT": "Rooms Management",
+		"USER_MANAGEMENT": "Users Management"
+	},
 	"REGISTRATION": {
 		"CITY": "Enter your city",
 		"EMAIL": "Email",

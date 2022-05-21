@@ -5,6 +5,7 @@ import { SidenavRoutingModule } from './sidenav-routing.module';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import {MaterialExModule} from "../shared/modules/material-ex.module";
 import {ToolbarModule} from "../toolbar/toolbar.module";
+import {TranslateModule} from "@ngx-translate/core";
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import {ToolbarModule} from "../toolbar/toolbar.module";
     CommonModule,
     SidenavRoutingModule,
     MaterialExModule,
-    ToolbarModule
+    ToolbarModule,
+    TranslateModule
   ]
 })
 export class SidenavModule { }

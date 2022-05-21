@@ -16,7 +16,6 @@ export class SidenavComponent implements OnInit {
   }
 
   openSidenav() {
-    console.log('sdf')
     this.sidenav.toggle()
   }
 
