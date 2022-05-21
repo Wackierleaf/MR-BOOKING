@@ -19,6 +19,7 @@ import {AngularFireModule} from "@angular/fire/compat";
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {ToolbarModule} from "./toolbar/toolbar.module";
 import {UserService} from "./shared/services/user.service";
+import { DeleteConfirmationComponent } from './general-components/delete-confirmation/delete-confirmation.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -27,6 +28,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
+    DeleteConfirmationComponent,
   ],
   imports: [
     ToolbarModule,

@@ -1,0 +1,42 @@
+:host {
+  display: flex;
+  padding: 12px;
+}
+
+tr:hover {
+  background: rgb(73, 73, 73);
+}
+
+.actions-container {
+  visibility: hidden;
+  cursor: pointer;
+}
+
+.mat-row:hover {
+  transition: ease 0.3s;
+
+  .actions-container {
+    visibility: visible;
+  }
+}
+
+.user-management {
+  width: 100%;
+  height: 100%;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+
+  mat-icon {
+    width: 35px;
+    height: 35px;
+    font-size: 35px;
+    margin-right: 5px;
+  }
+}
+
+.users-table {
+  width: 100%;
+}

@@ -1,6 +1,12 @@
 {
 	"COMMON": {
-		"CANCEL": "Отменить"
+		"CANCEL": "Отменить",
+		"CITY": "Город",
+		"DELETE-CONFIRMATION": "Вы уверены что хотите удалить?",
+		"EMAIL": "Email",
+		"NAME": "Имя",
+		"OK": "OK",
+		"ROLE": "Роль"
 	},
 	"LOGIN": {
 		"EMAIL-ERROR": "Введите правильный email",
@@ -39,5 +45,8 @@
 		"PASSWORD-CONFIRMATION": "Повторите пароль",
 		"PASSWORD-SECTION": "Пароль",
 		"REGISTER": "Зарегистрироваться"
+	},
+	"USERS-MANAGEMENT": {
+		"TITLE": "Управление Пользователями"
 	}
 }

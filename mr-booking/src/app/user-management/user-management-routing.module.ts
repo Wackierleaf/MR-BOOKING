@@ -1,9 +1,9 @@
 import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
-import {UsersListComponent} from "./users-list/users-list.component";
+import {UserManagementPageComponent} from "./user-management-page/user-management-page.component";
 
 const routes: Routes = [
-  {path: '', component: UsersListComponent}
+  {path: '', component: UserManagementPageComponent}
 ]
 
 @NgModule({

@@ -1,8 +1,7 @@
 import {Injectable} from '@angular/core';
-import {AngularFirestore, AngularFirestoreCollection} from "@angular/fire/compat/firestore";
+import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {User} from "./user";
-import {collection} from "@angular/fire/firestore";
-import {map, Observable} from "rxjs";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -15,5 +14,13 @@ export class UserService {
 
   getUser(id: string) {
     return this.afs.doc<User>(`users/${id}`).valueChanges()
+  }
+
+  get users(): Observable<User[]> {
+    return this.afs.collection<User>('users').valueChanges()
+  }
+
+  deleteUser(id: string) {
+    return this.afs.doc<User>(`users/${id}`).delete()
   }
 }

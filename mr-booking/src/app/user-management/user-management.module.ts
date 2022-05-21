@@ -1,17 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UsersListComponent } from './users-list/users-list.component';
 import {UserManagementRoutingModule} from "./user-management-routing.module";
+import { UserManagementPageComponent } from './user-management-page/user-management-page.component';
+import {MaterialExModule} from "../shared/modules/material-ex.module";
+import {TranslateModule} from "@ngx-translate/core";
 
 
 
 @NgModule({
   declarations: [
-    UsersListComponent
+    UserManagementPageComponent
   ],
   imports: [
     CommonModule,
-    UserManagementRoutingModule
+    UserManagementRoutingModule,
+    MaterialExModule,
+    TranslateModule
   ]
 })
 export class UserManagementModule { }
