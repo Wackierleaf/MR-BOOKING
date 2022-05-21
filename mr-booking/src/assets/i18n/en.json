@@ -6,7 +6,8 @@
 		"EMAIL": "Email",
 		"NAME": "Name",
 		"OK": "OK",
-		"ROLE": "Role"
+		"ROLE": "Role",
+		"SAVE": "Save"
 	},
 	"LOGIN": {
 		"EMAIL-ERROR": "Please enter a valid email",
@@ -47,6 +48,10 @@
 		"REGISTER": "Register"
 	},
 	"USERS-MANAGEMENT": {
-		"TITLE": "Users Management"
+		"TITLE": "Users Management",
+		"USER-EDITOR": {
+			"TITLE": "User Editing",
+			"USER-DATA": "User Data"
+		}
 	}
 }

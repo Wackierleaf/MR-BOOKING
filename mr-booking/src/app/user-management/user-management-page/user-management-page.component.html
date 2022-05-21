@@ -34,7 +34,7 @@
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let user">
           <div class="actions-container">
-            <button mat-icon-button>
+            <button mat-icon-button (click)="openUserEditor(user); $event.stopPropagation()">
               <mat-icon>edit</mat-icon>
             </button>
 

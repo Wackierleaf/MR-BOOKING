@@ -23,4 +23,8 @@ export class UserService {
   deleteUser(id: string) {
     return this.afs.doc<User>(`users/${id}`).delete()
   }
+
+  updateUser(user: User) {
+    return this.afs.doc<User>(`users/${user.uid}`).set(user, {merge: true})
+  }
 }

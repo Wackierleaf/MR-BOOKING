@@ -1,0 +1,32 @@
+<h1>{{'USERS-MANAGEMENT.USER-EDITOR.TITLE' | translate}}</h1>
+<div mat-dialog-content class="dialog-content">
+  <form [formGroup]="editorForm">
+    <h3>{{'USERS-MANAGEMENT.USER-EDITOR.USER-DATA' | translate}}</h3>
+    <mat-divider></mat-divider>
+    <div class="general-section">
+      <!--    NAME-->
+      <mat-form-field appearance="outline">
+        <mat-label>{{'REGISTRATION.NAME' | translate}}</mat-label>
+        <input matInput formControlName="displayName">
+      </mat-form-field>
+      <!--    EMAIL-->
+      <mat-form-field appearance="outline">
+        <mat-label>{{'COMMON.EMAIL' | translate}}</mat-label>
+        <input matInput formControlName="email">
+        <mat-error>{{'LOGIN.EMAIL-ERROR' | translate}}</mat-error>
+      </mat-form-field>
+      <!--    CITY-->
+      <mat-form-field appearance="outline">
+        <mat-label>{{'COMMON.CITY' | translate}}</mat-label>
+        <input matInput formControlName="city">
+      </mat-form-field>
+    </div>
+  </form>
+  <div class="btn-container">
+    <button type="button" mat-raised-button [mat-dialog-close]="false">{{'COMMON.CANCEL' | translate}}</button>
+    <button type="button"
+            [disabled]="editorForm.invalid"
+            mat-raised-button color="primary"
+            [mat-dialog-close]="newData">{{'COMMON.SAVE' | translate}}</button>
+  </div>
+</div>
