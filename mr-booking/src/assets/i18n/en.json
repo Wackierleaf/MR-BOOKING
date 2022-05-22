@@ -50,6 +50,7 @@
 	"USERS-MANAGEMENT": {
 		"TITLE": "Users Management",
 		"USER-EDITOR": {
+			"CHANGE-AVATAR": "Change Avatar",
 			"TITLE": "User Editing",
 			"USER-DATA": "User Data"
 		}

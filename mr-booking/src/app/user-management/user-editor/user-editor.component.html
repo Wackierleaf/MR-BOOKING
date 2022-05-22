@@ -1,6 +1,30 @@
 <h1>{{'USERS-MANAGEMENT.USER-EDITOR.TITLE' | translate}}</h1>
 <div mat-dialog-content class="dialog-content">
   <form [formGroup]="editorForm">
+    <div class="avatar-section">
+      <div
+        class="avatar"
+        *ngIf="photoUrl; else avatarEmulator"
+        mat-card-avatar
+        [style.background-image]="'url(' + photoUrl + ')'"
+        [style.background-size]="'cover'"></div>
+      <ng-template #avatarEmulator>
+        <div class="avatar emulator">
+          <mat-icon>person</mat-icon>
+        </div>
+      </ng-template>
+      <button class="change-avatar-btn"
+              type="button"
+              mat-raised-button
+              color="primary"
+              (click)="fileInput.click()"
+      >{{'USERS-MANAGEMENT.USER-EDITOR.CHANGE-AVATAR' | translate}}</button>
+      <input
+        hidden #fileInput type="file" accept="image/*"
+        (change)="onFileSelected($event)"
+      >
+    </div>
+
     <h3>{{'USERS-MANAGEMENT.USER-EDITOR.USER-DATA' | translate}}</h3>
     <mat-divider></mat-divider>
     <div class="general-section">
@@ -19,6 +43,14 @@
       <mat-form-field appearance="outline">
         <mat-label>{{'COMMON.CITY' | translate}}</mat-label>
         <input matInput formControlName="city">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>{{'COMMON.ROLE' | translate}}</mat-label>
+        <mat-select formControlName="role">
+          <mat-option [value]="roles.ADMIN">{{roles.ADMIN}}</mat-option>
+          <mat-option [value]="roles.USER">{{roles.USER}}</mat-option>
+        </mat-select>
       </mat-form-field>
     </div>
   </form>

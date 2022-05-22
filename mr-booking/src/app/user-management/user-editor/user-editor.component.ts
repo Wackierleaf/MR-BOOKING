@@ -2,8 +2,8 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MyErrorStateMatcher} from "../../shared/services/ErrorStateMatcher";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
-import {AuthService} from "../../shared/services/auth.service";
 import {User} from "../../shared/services/user";
+import {Roles} from "../../shared/services/user.service";
 
 @Component({
   selector: 'app-user-editor',
@@ -16,6 +16,9 @@ export class UserEditorComponent implements OnInit {
   editorForm: FormGroup;
   hide: boolean = true;
   errorMatcher = new MyErrorStateMatcher();
+  roles = Roles
+  selectedFile: File
+  photoUrl: string
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public userData: User,
@@ -24,15 +27,24 @@ export class UserEditorComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.photoUrl = this.userData.photoURL as string
     this.editorForm = this.formBuilder.group({
       displayName: [this.userData.displayName, Validators.required],
       email: [this.userData.email, [Validators.required, Validators.email]],
       city: [this.userData.city, Validators.required],
-      role: [this.userData.role, Validators.required]
+      role: [this.userData.role, Validators.required],
+      photo: [this.userData.photoURL]
     }, )
   }
 
   get newData() {
-    return this.editorForm.value
+    return {formData: this.editorForm.value, photo: this.selectedFile}
+  }
+
+  onFileSelected($event: any) {
+    this.selectedFile = $event.target.files[0]
+    const reader = new FileReader()
+    reader.onload = () => this.photoUrl = reader.result as string;
+    reader.readAsDataURL(this.selectedFile)
   }
 }

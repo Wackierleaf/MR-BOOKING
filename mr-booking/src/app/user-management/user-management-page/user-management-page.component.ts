@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {UserService} from "../../shared/services/user.service";
-import {debounceTime, distinctUntilChanged, filter, Subscription} from "rxjs";
+import {debounceTime, distinctUntilChanged, Subscription} from "rxjs";
 import {User} from "../../shared/services/user";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatDialog} from "@angular/material/dialog";
@@ -33,7 +33,6 @@ export class UserManagementPageComponent implements OnInit, OnDestroy {
         debounceTime(500),
         distinctUntilChanged(),
       ).subscribe(searchVal => {
-        console.log(searchVal)
         if(searchVal && searchVal.length >= 3) {
           this.userService.searchUser(searchVal)
             .subscribe(searchResult => this.users.data = searchResult as User[])
@@ -75,12 +74,17 @@ export class UserManagementPageComponent implements OnInit, OnDestroy {
       data: userData
     })
 
-    dialogRef.afterClosed().subscribe(async result => {
+    dialogRef.afterClosed().subscribe( async result => {
       if (result) {
-        userData.displayName = result.displayName
-        userData.email = result.email
-        userData.city = result.city
-        userData.role = result.role
+        userData.displayName = result.formData.displayName
+        userData.email = result.formData.email
+        userData.city = result.formData.city
+        userData.role = result.formData.role
+        if (result.photo) {
+          this.userService.uploadUserPhotoAndUpdateData(userData, result.photo)
+            .subscribe()
+          return
+        }
         await this.userService.updateUser(userData)
       }
     })

@@ -50,6 +50,7 @@
 	"USERS-MANAGEMENT": {
 		"TITLE": "Управление Пользователями",
 		"USER-EDITOR": {
+			"CHANGE-AVATAR": "Изменить Фото",
 			"TITLE": "Редактирование Пользователя",
 			"USER-DATA": "Данные"
 		}

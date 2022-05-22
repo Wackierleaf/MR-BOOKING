@@ -19,7 +19,8 @@ import {AngularFireModule} from "@angular/fire/compat";
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {ToolbarModule} from "./toolbar/toolbar.module";
 import {UserService} from "./shared/services/user.service";
-import { DeleteConfirmationComponent } from './general-components/delete-confirmation/delete-confirmation.component';
+import {DeleteConfirmationComponent} from './general-components/delete-confirmation/delete-confirmation.component';
+import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -37,6 +38,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserModule,
     AppRoutingModule,
     RouterModule,
+    AngularFireStorageModule,
     ReactiveFormsModule,
     MaterialExModule,
     TranslateModule.forRoot(
