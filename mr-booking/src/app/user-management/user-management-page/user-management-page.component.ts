@@ -1,11 +1,12 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {UserService} from "../../shared/services/user.service";
-import {Subscription} from "rxjs";
+import {debounceTime, distinctUntilChanged, filter, Subscription} from "rxjs";
 import {User} from "../../shared/services/user";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatDialog} from "@angular/material/dialog";
 import {DeleteConfirmationComponent} from "../../general-components/delete-confirmation/delete-confirmation.component";
 import {UserEditorComponent} from "../user-editor/user-editor.component";
+import {FormControl} from "@angular/forms";
 
 @Component({
   selector: 'app-user-management-page',
@@ -14,9 +15,10 @@ import {UserEditorComponent} from "../user-editor/user-editor.component";
 })
 export class UserManagementPageComponent implements OnInit, OnDestroy {
   displayedCols: string[] = ['name', 'email', 'city', 'role', 'actions']
-  private readonly subList$ = new Subscription()
   users: MatTableDataSource<User> = new MatTableDataSource<User>()
+  searchControl: FormControl = new FormControl()
 
+  private readonly subList$ = new Subscription()
   constructor(
     public userService: UserService,
     public dialog: MatDialog
@@ -24,6 +26,25 @@ export class UserManagementPageComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.init()
+
+    this.subList$.add(
+      this.searchControl.valueChanges.pipe(
+        debounceTime(500),
+        distinctUntilChanged(),
+      ).subscribe(searchVal => {
+        console.log(searchVal)
+        if(searchVal && searchVal.length >= 3) {
+          this.userService.searchUser(searchVal)
+            .subscribe(searchResult => this.users.data = searchResult as User[])
+        } else {
+          this.init()
+        }
+      })
+    )
+  }
+
+  init() {
     this.subList$.add(
       this.userService.users
         .subscribe(usersData => this.users.data = usersData)

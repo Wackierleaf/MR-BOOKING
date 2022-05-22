@@ -27,4 +27,12 @@ export class UserService {
   updateUser(user: User) {
     return this.afs.doc<User>(`users/${user.uid}`).set(user, {merge: true})
   }
+
+  searchUser(searchStr: string) {
+    return this.afs.collection('users', ref => ref
+      .orderBy('displayName')
+      .startAt(searchStr)
+      .endAt(searchStr+'\uf8ff'))
+      .valueChanges()
+  }
 }

@@ -12,6 +12,10 @@ tr:hover {
   cursor: pointer;
 }
 
+.search {
+  width: 30%;
+}
+
 .mat-row:hover {
   transition: ease 0.3s;
 
@@ -39,4 +43,10 @@ tr:hover {
 
 .users-table {
   width: 100%;
+}
+
+@media (max-width: 500px) {
+  .search {
+    width: 100%;
+  }
 }
