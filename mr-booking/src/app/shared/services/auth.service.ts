@@ -29,7 +29,7 @@ export class AuthService {
 
   async signIn(email: string, password: string) {
     await this.afAuth.signInWithEmailAndPassword(email, password)
-    await this.router.navigate(['sidenav'])
+    await this.router.navigate([''])
   }
 
   async signUp(email: string, password: string, name: string, city: string) {
