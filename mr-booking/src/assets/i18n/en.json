@@ -21,11 +21,12 @@
 	"MAIN": {
 		"HEADER": "MR Booking",
 		"LANGUAGES": {
-			"ENGLISH": "English",
-			"RUSSIAN": "Russian"
+			"ENGLISH": "EN",
+			"RUSSIAN": "RU"
 		},
 		"MENU": {
-			"LOGOUT": "Logout"
+			"LOGOUT": "Logout",
+			"PROFILE": "Profile"
 		}
 	},
 	"NAVIGATION": {

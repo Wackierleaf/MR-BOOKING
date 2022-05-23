@@ -2,6 +2,10 @@
 
 $space-between-menu-sections: 6px;
 
+:host {
+  width: 200px;
+}
+
 .emulator {
   @include avatar;
   cursor: pointer;

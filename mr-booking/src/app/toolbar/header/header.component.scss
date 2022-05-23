@@ -14,6 +14,17 @@ $icon-size: 32px;
   height: $avatar-size;
 }
 
+::ng-deep .user-menu {
+  width: 250px !important;
+}
+
+.user-tools {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 100px;
+}
+
 .emulator {
   @include avatar;
   cursor: pointer;

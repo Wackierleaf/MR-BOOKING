@@ -8,11 +8,17 @@
     </div>
   </div>
   <mat-divider></mat-divider>
-  <div class="logout" (click)="authService.signOut()">
-    <button mat-icon-button>
-      <mat-icon>logout</mat-icon>
+  <div class="profile">
+    <button mat-menu-item>
+      {{'MAIN.MENU.PROFILE' | translate}}
     </button>
-    <span>{{'MAIN.MENU.LOGOUT' | translate}}</span>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="logout" (click)="authService.signOut()">
+    <button mat-menu-item>
+      <mat-icon>logout</mat-icon>
+      <span>{{'MAIN.MENU.LOGOUT' | translate}}</span>
+    </button>
   </div>
 </div>
 
