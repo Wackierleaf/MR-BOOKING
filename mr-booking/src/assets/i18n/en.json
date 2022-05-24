@@ -9,7 +9,8 @@
 		"NAME": "Name",
 		"OK": "OK",
 		"ROLE": "Role",
-		"SAVE": "Save"
+		"SAVE": "Save",
+		"TOOLS": "Tools"
 	},
 	"LOGIN": {
 		"EMAIL-ERROR": "Please enter a valid email",

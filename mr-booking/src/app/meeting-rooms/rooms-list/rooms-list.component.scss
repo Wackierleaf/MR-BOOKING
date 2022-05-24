@@ -1,0 +1,28 @@
+.rooms-table {
+  width: 100%;
+
+  .seats, .tools {
+    text-align: center;
+  }
+
+  .description {
+    width: fit-content;
+  }
+
+  mat-icon {
+    margin: 4px;
+    width: 35px;
+    height: 35px;
+    font-size: 35px;
+  }
+}
+
+@media (max-width: 500px) {
+  .description {
+    display: none;
+  }
+
+  .actions {
+    padding: 0 !important;
+  }
+}

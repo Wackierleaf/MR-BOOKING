@@ -1,5 +1,4 @@
-import { Injectable } from '@angular/core';
-import {User} from "./user";
+import {Injectable} from '@angular/core';
 import {Observable} from "rxjs";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {AngularFireStorage} from "@angular/fire/compat/storage";
@@ -15,15 +14,19 @@ export class RoomsService {
     private storage: AngularFireStorage
   ) { }
 
-  get rooms(): Observable<User[]> {
-    return this.afs.collection<User>('rooms').valueChanges({idField: 'uid'})
+  get rooms(): Observable<Room[]> {
+    return this.afs.collection<Room>('rooms').valueChanges({idField: 'uid'})
   }
 
   getRoom(id: string) {
-    return this.afs.doc<User>(`rooms/${id}`).valueChanges()
+    return this.afs.doc<Room>(`rooms/${id}`).valueChanges()
   }
 
   createMeetingRoom(newRoom: Room) {
     return this.afs.collection('rooms').add(newRoom)
+  }
+
+  deleteRoom(id: string) {
+    return this.afs.doc<Room>(`rooms/${id}`).delete()
   }
 }

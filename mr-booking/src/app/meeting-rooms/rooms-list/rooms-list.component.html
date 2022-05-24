@@ -1,1 +1,51 @@
+<table mat-table [dataSource]="rooms" class="rooms-table">
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>{{'COMMON.NAME' | translate}}</th>
+    <td mat-cell *matCellDef="let room">{{room.name}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="seats">
+    <th class="seats" mat-header-cell *matHeaderCellDef>{{'ROOMS_MANAGEMENT.SEATS-NUM' | translate}}</th>
+    <td class="seats" mat-cell *matCellDef="let room">{{room.seats}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="description">
+    <th class="description" mat-header-cell *matHeaderCellDef>{{'COMMON.DESCRIPTION' | translate}}</th>
+    <td class="description" mat-cell *matCellDef="let room">{{room.description}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="tools">
+    <th class="tools" mat-header-cell *matHeaderCellDef>{{'COMMON.TOOLS' | translate}}</th>
+    <td mat-cell *matCellDef="let room">
+      <div>
+        <mat-icon *ngIf="room.whiteboard">note_alt</mat-icon>
+        <mat-icon *ngIf="room.projector">smart_screen</mat-icon>
+      </div>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th class="actions" mat-header-cell *matHeaderCellDef></th>
+    <td class="actions" mat-cell *matCellDef="let room">
+      <div>
+        <button mat-icon-button  >
+          <mat-icon>edit</mat-icon>
+        </button>
+
+        <button (click)="deleteRoom(room.uid)" mat-icon-button color="warn">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<mat-paginator
+  [length]="rooms.data.length"
+  pageSize="10"
+  [pageSizeOptions]="[5, 10, 25, 100]"
+></mat-paginator>
 
