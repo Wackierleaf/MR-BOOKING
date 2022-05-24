@@ -48,6 +48,13 @@
 		"PASSWORD-SECTION": "Password",
 		"REGISTER": "Register"
 	},
+	"ROOMS_MANAGEMENT": {
+		"TABS": {
+			"ADD": "Add",
+			"LIST": "Rooms"
+		},
+		"TITLE": "Meeting Rooms Management"
+	},
 	"USERS-MANAGEMENT": {
 		"TITLE": "Users Management",
 		"USER-EDITOR": {

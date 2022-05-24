@@ -48,6 +48,13 @@
 		"PASSWORD-SECTION": "Пароль",
 		"REGISTER": "Зарегистрироваться"
 	},
+	"ROOMS_MANAGEMENT": {
+		"TABS": {
+			"ADD": "Добавить",
+			"LIST": "Комнаты"
+		},
+		"TITLE": "Управление Переговорными"
+	},
 	"USERS-MANAGEMENT": {
 		"TITLE": "Управление Пользователями",
 		"USER-EDITOR": {
