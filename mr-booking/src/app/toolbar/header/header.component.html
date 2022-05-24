@@ -3,20 +3,23 @@
     <button mat-icon-button (click)="navigationToggle()">
       <mat-icon>menu</mat-icon>
     </button>
-    <button mat-icon-button (click)="switchLang()">
-      <mat-icon
-        [ngClass]="isRuLang ? 'white' : 'red'"
-        [matTooltip]="translationKey | translate"
-      >translate</mat-icon>
-    </button>
     <div class="art-icon">
       <span>{{'MAIN.HEADER' | translate}}</span>
     </div>
-    <div class="avatar emulator" [matMenuTriggerFor]="menu">
-      <mat-icon>person</mat-icon>
+
+    <div class="user-tools">
+      <div>
+        <button mat-icon-button (click)="switchLang()">
+          <span>{{translationKey | translate}}</span>
+        </button>
+      </div>
+
+      <div class="avatar emulator" [matMenuTriggerFor]="userMenu">
+        <mat-icon>person</mat-icon>
+      </div>
+      <mat-menu #userMenu class="user-menu">
+        <app-menu></app-menu>
+      </mat-menu>
     </div>
-    <mat-menu #menu>
-      <app-menu></app-menu>
-    </mat-menu>
   </div>
 </mat-toolbar>

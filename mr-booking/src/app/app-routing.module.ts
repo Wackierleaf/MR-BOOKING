@@ -6,7 +6,7 @@ import {SidenavModule} from "./sidenav/sidenav.module";
 import {SidenavComponent} from "./sidenav/sidenav/sidenav.component";
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
-const redirectLoggedInToSideNav = () => redirectLoggedInTo(['sidenav']);
+const redirectLoggedInToSideNav = () => redirectLoggedInTo(['']);
 
 const routes: Routes = [
   {

@@ -36,8 +36,8 @@ export class SignInComponent implements OnInit {
     })
   }
 
-  login() {
+  async login() {
     const {email, password} = this.loginForm.value
-    this.authService.signIn(email, password)
+    await this.authService.signIn(email, password)
   }
 }
