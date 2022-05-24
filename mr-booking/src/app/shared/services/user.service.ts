@@ -45,7 +45,7 @@ export class UserService {
   }
 
   uploadUserPhotoAndUpdateData(userData: User, file: File) {
-    const filePath = `images/${Date.now()}_${file.name}`
+    const filePath = `user-avatars/${Date.now()}_${file.name}`
     const fileRef = this.storage.ref(filePath)
     return this.storage.upload(filePath, file).snapshotChanges().pipe(
       finalize(() => {
