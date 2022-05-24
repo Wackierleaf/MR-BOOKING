@@ -5,12 +5,16 @@ import {MeetingRoomsRoutingModule} from "./meeting-rooms-routing.module";
 import {MaterialExModule} from "../shared/modules/material-ex.module";
 import {TranslateModule} from "@ngx-translate/core";
 import {ReactiveFormsModule} from "@angular/forms";
+import { RoomsListComponent } from './rooms-list/rooms-list.component';
+import { AddNewRoomComponent } from './add-new-room/add-new-room.component';
 
 
 
 @NgModule({
   declarations: [
-    MeetingRoomsPageComponent
+    MeetingRoomsPageComponent,
+    RoomsListComponent,
+    AddNewRoomComponent
   ],
   imports: [
     CommonModule,

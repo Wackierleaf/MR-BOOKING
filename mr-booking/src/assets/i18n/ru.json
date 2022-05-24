@@ -1,8 +1,10 @@
 {
 	"COMMON": {
+		"ADD": "Добавить",
 		"CANCEL": "Отменить",
 		"CITY": "Город",
 		"DELETE-CONFIRMATION": "Вы уверены что хотите удалить?",
+		"DESCRIPTION": "Описание",
 		"EMAIL": "Email",
 		"NAME": "Имя",
 		"OK": "OK",
@@ -49,11 +51,16 @@
 		"REGISTER": "Зарегистрироваться"
 	},
 	"ROOMS_MANAGEMENT": {
+		"CREATION-TITLE": "Новая комната",
+		"NAME": "Название",
+		"PROJECTOR": "Проектор",
+		"SEATS-NUM": "Число мест",
 		"TABS": {
 			"ADD": "Добавить",
 			"LIST": "Комнаты"
 		},
-		"TITLE": "Управление Переговорными"
+		"TITLE": "Управление Переговорными",
+		"WHITEBOARD": "Маркерная доска"
 	},
 	"USERS-MANAGEMENT": {
 		"TITLE": "Управление Пользователями",

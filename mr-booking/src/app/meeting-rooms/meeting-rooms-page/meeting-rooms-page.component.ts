@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {MatTabGroup} from "@angular/material/tabs";
 
 @Component({
   selector: 'app-meeting-rooms-page',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./meeting-rooms-page.component.scss']
 })
 export class MeetingRoomsPageComponent implements OnInit {
+  @ViewChild('tabGroup') tabGroup: MatTabGroup
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  switchTab(tabIdx: number) {
+    this.tabGroup.selectedIndex = tabIdx
+  }
 }

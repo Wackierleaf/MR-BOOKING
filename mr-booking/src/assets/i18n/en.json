@@ -1,8 +1,10 @@
 {
 	"COMMON": {
+		"ADD": "Add",
 		"CANCEL": "Cancel",
 		"CITY": "City",
 		"DELETE-CONFIRMATION": "Are you sure you want to delete?",
+		"DESCRIPTION": "Description",
 		"EMAIL": "Email",
 		"NAME": "Name",
 		"OK": "OK",
@@ -49,11 +51,16 @@
 		"REGISTER": "Register"
 	},
 	"ROOMS_MANAGEMENT": {
+		"CREATION-TITLE": "Room creation",
+		"NAME": "Name",
+		"PROJECTOR": "Projector",
+		"SEATS-NUM": "Seats number",
 		"TABS": {
 			"ADD": "Add",
 			"LIST": "Rooms"
 		},
-		"TITLE": "Meeting Rooms Management"
+		"TITLE": "Meeting Rooms Management",
+		"WHITEBOARD": "Whiteboard"
 	},
 	"USERS-MANAGEMENT": {
 		"TITLE": "Users Management",
