@@ -1,10 +1,22 @@
 <div class="menu-content">
   <div class="info-block">
-    <div class="avatar emulator">
-      <mat-icon>person</mat-icon>
+
+    <div
+      class="avatar emulator"
+      mat-card-avatar
+      *ngIf="userData?.photoURL; else avatarEmulator"
+      [style.background-image]="'url(' + userData?.photoURL + ')'"
+      [style.background-size]="'cover'">
     </div>
+
+    <ng-template #avatarEmulator>
+      <div class="avatar emulator">
+        <mat-icon>person</mat-icon>
+      </div>
+    </ng-template>
+
     <div class="name-section">
-      <span>{{userName | async}}</span>
+      <span>{{userData?.displayName}}</span>
     </div>
   </div>
   <mat-divider></mat-divider>

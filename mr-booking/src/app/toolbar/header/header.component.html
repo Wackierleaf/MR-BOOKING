@@ -14,11 +14,23 @@
         </button>
       </div>
 
-      <div class="avatar emulator" [matMenuTriggerFor]="userMenu">
-        <mat-icon>person</mat-icon>
+      <div *ngIf="user$ | async as userData">
+        <div
+          class="avatar"
+          mat-card-avatar
+          [matMenuTriggerFor]="userMenu"
+          *ngIf="userData.photoURL; else avatarEmulator"
+          [style.background-image]="'url(' + userData.photoURL + ')'"
+          [style.background-size]="'cover'">
+        </div>
+        <ng-template #avatarEmulator>
+          <div class="avatar emulator" [matMenuTriggerFor]="userMenu">
+            <mat-icon>person</mat-icon>
+          </div>
+        </ng-template>
       </div>
       <mat-menu #userMenu class="user-menu">
-        <app-menu></app-menu>
+        <app-menu [userData]="user$ | async"></app-menu>
       </mat-menu>
     </div>
   </div>
