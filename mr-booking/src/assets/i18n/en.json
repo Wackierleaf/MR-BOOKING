@@ -53,6 +53,7 @@
 	},
 	"ROOMS_MANAGEMENT": {
 		"CREATION-TITLE": "Room creation",
+		"EDITOR-TITLE": "Room editing",
 		"NAME": "Name",
 		"PROJECTOR": "Projector",
 		"SEATS-NUM": "Seats number",

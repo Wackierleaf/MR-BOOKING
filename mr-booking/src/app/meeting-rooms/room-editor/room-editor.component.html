@@ -1,0 +1,38 @@
+<mat-card class="room-editor">
+  <h3>{{'ROOMS_MANAGEMENT.EDITOR-TITLE' | translate}}</h3>
+
+  <form [formGroup]="roomEditingForm">
+    <mat-form-field class="name" appearance="outline">
+      <mat-label>{{'ROOMS_MANAGEMENT.NAME' | translate}}</mat-label>
+      <input formControlName="name" autocomplete="off" matInput>
+    </mat-form-field>
+
+    <mat-form-field class="seats-number" appearance="outline">
+      <mat-label>{{'ROOMS_MANAGEMENT.SEATS-NUM' | translate}}</mat-label>
+      <input formControlName="seats" autocomplete="off" type="number" matInput>
+    </mat-form-field>
+
+    <div class="checkbox-section">
+      <mat-checkbox formControlName="projector">{{'ROOMS_MANAGEMENT.PROJECTOR' | translate}}</mat-checkbox>
+      <mat-checkbox formControlName="whiteboard">{{'ROOMS_MANAGEMENT.WHITEBOARD' | translate}}</mat-checkbox>
+    </div>
+
+    <mat-form-field class="description" appearance="outline">
+      <mat-label>{{'COMMON.DESCRIPTION' | translate}}</mat-label>
+      <textarea formControlName="description"
+                [cdkAutosizeMinRows]="2"
+                [cdkAutosizeMaxRows]="6"
+                autocomplete="off"
+                cdkTextareaAutosize matInput ></textarea>
+    </mat-form-field>
+  </form>
+
+  <div class="actions">
+    <button mat-raised-button routerLink="/mr-management">{{'COMMON.CANCEL' | translate}}</button>
+    <button mat-raised-button
+            [disabled]="roomEditingForm.invalid || roomEditingForm.untouched"
+            (click)="submit()" color="primary">
+      {{'COMMON.SAVE' | translate}}</button>
+  </div>
+</mat-card>
+

@@ -53,6 +53,7 @@
 	},
 	"ROOMS_MANAGEMENT": {
 		"CREATION-TITLE": "Новая комната",
+		"EDITOR-TITLE": "Редактирование комнаты",
 		"NAME": "Название",
 		"PROJECTOR": "Проектор",
 		"SEATS-NUM": "Число мест",

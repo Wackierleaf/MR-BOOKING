@@ -7,6 +7,7 @@ import {TranslateModule} from "@ngx-translate/core";
 import {ReactiveFormsModule} from "@angular/forms";
 import { RoomsListComponent } from './rooms-list/rooms-list.component';
 import { AddNewRoomComponent } from './add-new-room/add-new-room.component';
+import { RoomEditorComponent } from './room-editor/room-editor.component';
 
 
 
@@ -14,7 +15,8 @@ import { AddNewRoomComponent } from './add-new-room/add-new-room.component';
   declarations: [
     MeetingRoomsPageComponent,
     RoomsListComponent,
-    AddNewRoomComponent
+    AddNewRoomComponent,
+    RoomEditorComponent
   ],
   imports: [
     CommonModule,

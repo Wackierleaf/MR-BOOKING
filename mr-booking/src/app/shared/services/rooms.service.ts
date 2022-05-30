@@ -19,7 +19,7 @@ export class RoomsService {
   }
 
   getRoom(id: string) {
-    return this.afs.doc<Room>(`rooms/${id}`).valueChanges()
+    return this.afs.doc<Room>(`rooms/${id}`).valueChanges({idField: 'uid'})
   }
 
   createMeetingRoom(newRoom: Room) {
@@ -36,5 +36,9 @@ export class RoomsService {
       .startAt(searchStr)
       .endAt(searchStr + '\uf8ff'))
       .valueChanges({idField: 'uid'})
+  }
+
+  updateRoom(roomData: Room) {
+    return this.afs.doc<Room>(`rooms/${roomData.uid}`).set(roomData, {merge: true})
   }
 }

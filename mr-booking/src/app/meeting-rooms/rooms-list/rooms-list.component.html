@@ -28,7 +28,7 @@
     <th class="actions" mat-header-cell *matHeaderCellDef></th>
     <td class="actions" mat-cell *matCellDef="let room">
       <div>
-        <button mat-icon-button  >
+        <button (click)="editRoom(room)" mat-icon-button  >
           <mat-icon>edit</mat-icon>
         </button>
 

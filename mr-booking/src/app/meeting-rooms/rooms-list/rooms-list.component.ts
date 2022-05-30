@@ -6,6 +6,7 @@ import {RoomsService} from "../../shared/services/rooms.service";
 import {DeleteConfirmationComponent} from "../../general-components/delete-confirmation/delete-confirmation.component";
 import {MatDialog} from "@angular/material/dialog";
 import {FormControl} from "@angular/forms";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-rooms-list',
@@ -21,7 +22,9 @@ export class RoomsListComponent implements OnInit, OnDestroy {
 
   constructor(
     private readonly roomsService: RoomsService,
-    public dialog: MatDialog
+    private readonly router: Router,
+    private readonly activatedRoute: ActivatedRoute,
+    public dialog: MatDialog,
   ) {
   }
 
@@ -68,5 +71,15 @@ export class RoomsListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subList$.unsubscribe()
+  }
+
+  async editRoom(room: Room) {
+    await this.router.navigate(
+      ['edit-room'],{
+        relativeTo: this.activatedRoute,
+        queryParams: {
+          roomData: JSON.stringify(room)
+        }
+      })
   }
 }
