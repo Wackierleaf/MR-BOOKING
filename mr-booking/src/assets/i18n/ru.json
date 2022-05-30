@@ -64,6 +64,9 @@
 		"TITLE": "Управление Переговорными",
 		"WHITEBOARD": "Маркерная доска"
 	},
+	"USER-PROFILE": {
+		"TITLE": "Профиль"
+	},
 	"USERS-MANAGEMENT": {
 		"TITLE": "Управление Пользователями",
 		"USER-EDITOR": {

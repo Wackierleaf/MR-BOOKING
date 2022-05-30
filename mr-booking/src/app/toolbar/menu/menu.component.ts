@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {AuthService} from "../../shared/services/auth.service";
 import {User} from "../../shared/services/user";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-menu',
@@ -12,6 +13,10 @@ export class MenuComponent {
 
   constructor(
     public readonly authService: AuthService,
+    private readonly router: Router
   ) {}
 
+  async openUserProfile() {
+    await this.router.navigate(['user-profile', this.userData?.uid])
+  }
 }

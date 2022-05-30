@@ -1,0 +1,88 @@
+<mat-card class="user-profile">
+  <mat-card-header>
+    <div class="header-content">
+      <mat-icon>account_circle</mat-icon>
+      <h3>{{'USER-PROFILE.TITLE' | translate}}</h3>
+    </div>
+  </mat-card-header>
+
+  <mat-card-content>
+
+    <form *ngIf="editorForm" [formGroup]="editorForm">
+
+      <button *ngIf="!isEditableStateActive"
+              (click)="activateEditing()"
+              class="edit-btn"
+              mat-raised-button
+              color="primary">
+        Редактировать
+      </button>
+
+      <div class="avatar-section">
+        <div
+          class="avatar"
+          *ngIf="photoUrl; else avatarEmulator"
+          mat-card-avatar
+          [style.background-image]="'url(' + photoUrl + ')'"
+          [style.background-size]="'cover'"></div>
+        <ng-template #avatarEmulator>
+          <div class="avatar emulator">
+            <mat-icon>person</mat-icon>
+          </div>
+        </ng-template>
+        <button *ngIf="isEditableStateActive"
+                class="change-avatar-btn"
+                type="button"
+                mat-raised-button
+                color="primary"
+                (click)="fileInput.click()"
+        >{{'USERS-MANAGEMENT.USER-EDITOR.CHANGE-AVATAR' | translate}}</button>
+        <input
+          hidden #fileInput type="file" accept="image/*"
+          (change)="onFileSelected($event)"
+        >
+      </div>
+
+      <h3>{{'USERS-MANAGEMENT.USER-EDITOR.USER-DATA' | translate}}</h3>
+      <mat-divider></mat-divider>
+      <div class="general-section">
+        <!--    NAME-->
+        <mat-form-field appearance="outline">
+          <mat-label>{{'REGISTRATION.NAME' | translate}}</mat-label>
+          <input matInput formControlName="displayName">
+        </mat-form-field>
+        <!--    EMAIL-->
+        <mat-form-field appearance="outline">
+          <mat-label>{{'COMMON.EMAIL' | translate}}</mat-label>
+          <input matInput formControlName="email">
+          <mat-error>{{'LOGIN.EMAIL-ERROR' | translate}}</mat-error>
+        </mat-form-field>
+        <!--    CITY-->
+        <mat-form-field appearance="outline">
+          <mat-label>{{'COMMON.CITY' | translate}}</mat-label>
+          <input matInput formControlName="city">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>{{'COMMON.ROLE' | translate}}</mat-label>
+          <mat-select formControlName="role">
+            <mat-option [value]="roles.ADMIN">{{roles.ADMIN}}</mat-option>
+            <mat-option [value]="roles.USER">{{roles.USER}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions align="end" *ngIf="isEditableStateActive">
+    <button type="button"
+            mat-raised-button
+            (click)="deactivateEditing()">
+      {{'COMMON.CANCEL' | translate}}
+    </button>
+    <button type="button"
+            [disabled]="editorForm.invalid || editorForm.untouched"
+            mat-raised-button color="primary" (click)="updateProfile()">{{'COMMON.SAVE' | translate}}</button>
+  </mat-card-actions>
+</mat-card>
+

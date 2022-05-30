@@ -15,7 +15,6 @@ export class UserEditorComponent implements OnInit {
   // @ts-ignore
   editorForm: FormGroup;
   hide: boolean = true;
-  errorMatcher = new MyErrorStateMatcher();
   roles = Roles
   selectedFile: File
   photoUrl: string

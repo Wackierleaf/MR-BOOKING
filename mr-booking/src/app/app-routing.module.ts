@@ -29,13 +29,17 @@ const routes: Routes = [
       },
       {
         path: 'user-management',
-        loadChildren: () => import('./user-management/user-management.module').then(m=> m.UserManagementModule)
+        loadChildren: () => import('./user-management/user-management.module').then(m => m.UserManagementModule)
+      },
+      {
+        path: 'user-profile/:id',
+        loadChildren: () => import('./user-profile/user-profile.module').then(m => m.UserProfileModule)
       }
     ],
     canActivate: [AngularFireAuthGuard],
     data: {authGuardPipe: redirectUnauthorizedToLogin}
   },
-  { path: 'verify-email-address', component: VerifyEmailComponent },
+  {path: 'verify-email-address', component: VerifyEmailComponent},
   {path: '**', redirectTo: 'login'}
 ];
 
@@ -46,4 +50,5 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

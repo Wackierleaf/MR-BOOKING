@@ -64,6 +64,9 @@
 		"TITLE": "Meeting Rooms Management",
 		"WHITEBOARD": "Whiteboard"
 	},
+	"USER-PROFILE": {
+		"TITLE": "Profile"
+	},
 	"USERS-MANAGEMENT": {
 		"TITLE": "Users Management",
 		"USER-EDITOR": {
