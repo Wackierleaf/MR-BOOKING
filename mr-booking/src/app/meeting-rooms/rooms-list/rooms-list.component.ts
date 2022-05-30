@@ -3,6 +3,8 @@ import {MatTableDataSource} from "@angular/material/table";
 import {Room} from "../../shared/services/room";
 import {Subscription} from "rxjs";
 import {RoomsService} from "../../shared/services/rooms.service";
+import {DeleteConfirmationComponent} from "../../general-components/delete-confirmation/delete-confirmation.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-rooms-list',
@@ -14,9 +16,12 @@ export class RoomsListComponent implements OnInit, OnDestroy {
   displayedColumns = ['name', 'seats', 'description', 'tools', 'actions']
 
   private readonly subList$ = new Subscription()
+
   constructor(
-    private readonly roomsService: RoomsService
-  ) { }
+    private readonly roomsService: RoomsService,
+    public dialog: MatDialog
+  ) {
+  }
 
   private initDataSource() {
     this.subList$.add(
@@ -32,7 +37,17 @@ export class RoomsListComponent implements OnInit, OnDestroy {
     this.subList$.unsubscribe()
   }
 
-  async deleteRoom(uid: string) {
-    await this.roomsService.deleteRoom(uid)
+  deleteRoom(uid: string) {
+    const dialogRef = this.dialog.open(DeleteConfirmationComponent, {
+      width: 'fit-content',
+      height: 'fit-content'
+    })
+    this.subList$.add(
+      dialogRef.afterClosed().subscribe(async res => {
+        if(res) {
+          await this.roomsService.deleteRoom(uid)
+        }
+      })
+    )
   }
 }
