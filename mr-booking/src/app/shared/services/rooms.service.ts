@@ -29,4 +29,12 @@ export class RoomsService {
   deleteRoom(id: string) {
     return this.afs.doc<Room>(`rooms/${id}`).delete()
   }
+
+  searchRoom(searchStr: string) {
+    return this.afs.collection('rooms', ref => ref
+      .orderBy('name')
+      .startAt(searchStr)
+      .endAt(searchStr + '\uf8ff'))
+      .valueChanges({idField: 'uid'})
+  }
 }

@@ -1,10 +1,11 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {Room} from "../../shared/services/room";
-import {Subscription} from "rxjs";
+import {debounceTime, distinctUntilChanged, Subscription} from "rxjs";
 import {RoomsService} from "../../shared/services/rooms.service";
 import {DeleteConfirmationComponent} from "../../general-components/delete-confirmation/delete-confirmation.component";
 import {MatDialog} from "@angular/material/dialog";
+import {FormControl} from "@angular/forms";
 
 @Component({
   selector: 'app-rooms-list',
@@ -12,6 +13,7 @@ import {MatDialog} from "@angular/material/dialog";
   styleUrls: ['./rooms-list.component.scss']
 })
 export class RoomsListComponent implements OnInit, OnDestroy {
+  @Input() searchControl: FormControl
   rooms = new MatTableDataSource<Room>([])
   displayedColumns = ['name', 'seats', 'description', 'tools', 'actions']
 
@@ -29,12 +31,25 @@ export class RoomsListComponent implements OnInit, OnDestroy {
     )
   }
 
-  ngOnInit(): void {
-    this.initDataSource()
+  private initSearchField() {
+    this.subList$.add(
+      this.searchControl.valueChanges.pipe(
+        debounceTime(500),
+        distinctUntilChanged(),
+      ).subscribe(searchVal => {
+        if(searchVal && searchVal.length >= 3) {
+          this.roomsService.searchRoom(searchVal)
+            .subscribe(searchResult => this.rooms.data = searchResult as Room[])
+        } else {
+          this.initDataSource()
+        }
+      })
+    )
   }
 
-  ngOnDestroy() {
-    this.subList$.unsubscribe()
+  ngOnInit(): void {
+    this.initSearchField()
+    this.initDataSource()
   }
 
   deleteRoom(uid: string) {
@@ -49,5 +64,9 @@ export class RoomsListComponent implements OnInit, OnDestroy {
         }
       })
     )
+  }
+
+  ngOnDestroy() {
+    this.subList$.unsubscribe()
   }
 }

@@ -3,6 +3,10 @@
   padding: 12px;
 }
 
+.search {
+  width: 30%;
+}
+
 .rooms-management {
   width: 100%;
   height: 100%;
@@ -17,5 +21,11 @@
     height: 35px;
     font-size: 35px;
     margin-right: 5px;
+  }
+}
+
+@media (max-width: 500px) {
+  .search {
+    width: 100%;
   }
 }

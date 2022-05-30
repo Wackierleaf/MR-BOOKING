@@ -8,10 +8,16 @@
     </mat-card-title>
   </mat-card-header>
 
+  <mat-form-field appearance="outline" class="search">
+    <mat-label>Search</mat-label>
+    <input matInput [formControl]="searchControl" minlength="3">
+    <mat-hint>Minimum 3 characters</mat-hint>
+  </mat-form-field>
+
   <mat-card-content>
     <mat-tab-group #tabGroup>
       <mat-tab [label]="'ROOMS_MANAGEMENT.TABS.LIST' | translate">
-        <app-rooms-list></app-rooms-list>
+        <app-rooms-list [searchControl]="searchControl"></app-rooms-list>
       </mat-tab>
       <mat-tab [label]="'ROOMS_MANAGEMENT.TABS.ADD' | translate">
         <app-add-new-room (tabIdxChanged)="switchTab($event)"></app-add-new-room>
