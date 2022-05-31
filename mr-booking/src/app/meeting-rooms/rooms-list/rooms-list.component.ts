@@ -82,4 +82,8 @@ export class RoomsListComponent implements OnInit, OnDestroy {
         }
       })
   }
+
+  async openRoomView(room: Room) {
+    await this.router.navigate(['room-view', room.uid], {relativeTo: this.activatedRoute})
+  }
 }

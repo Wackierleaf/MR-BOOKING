@@ -1,6 +1,7 @@
 {
 	"COMMON": {
 		"ADD": "Add",
+		"BOOK": "Book",
 		"CANCEL": "Cancel",
 		"CITY": "City",
 		"DELETE-CONFIRMATION": "Are you sure you want to delete?",
@@ -9,6 +10,7 @@
 		"NAME": "Name",
 		"OK": "OK",
 		"ROLE": "Role",
+		"ROOM": "Room",
 		"SAVE": "Save",
 		"TOOLS": "Tools"
 	},

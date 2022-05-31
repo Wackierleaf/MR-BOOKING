@@ -8,6 +8,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { RoomsListComponent } from './rooms-list/rooms-list.component';
 import { AddNewRoomComponent } from './add-new-room/add-new-room.component';
 import { RoomEditorComponent } from './room-editor/room-editor.component';
+import { RoomViewComponent } from './room-view/room-view.component';
 
 
 
@@ -16,7 +17,8 @@ import { RoomEditorComponent } from './room-editor/room-editor.component';
     MeetingRoomsPageComponent,
     RoomsListComponent,
     AddNewRoomComponent,
-    RoomEditorComponent
+    RoomEditorComponent,
+    RoomViewComponent
   ],
   imports: [
     CommonModule,

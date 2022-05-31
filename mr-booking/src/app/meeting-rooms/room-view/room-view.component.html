@@ -1,0 +1,28 @@
+<mat-card *ngIf="room$ | async as room" class="room-view">
+  <h3 class="header">{{'COMMON.ROOM' | translate}} : {{room.name}}</h3>
+
+  <mat-card-content>
+    <span>{{'ROOMS_MANAGEMENT.SEATS-NUM' | translate}} : {{room.seats}}</span>
+    <div class="options">
+      <mat-divider></mat-divider>
+      <div class="option">
+        <mat-icon>check_circle</mat-icon>
+        <span>{{'ROOMS_MANAGEMENT.WHITEBOARD' | translate}}</span>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="option">
+        <mat-icon>check_circle</mat-icon>
+        <span>{{'ROOMS_MANAGEMENT.PROJECTOR' | translate}}</span>
+      </div>
+    </div>
+
+    <mat-form-field appearance="outline" class="description">
+      <textarea readonly cdkTextareaAutosize cdkAutosizeMaxRows="10" matInput>{{room.description}}</textarea>
+    </mat-form-field>
+  </mat-card-content>
+
+  <mat-card-actions align="end">
+    <button mat-raised-button (click)="goBack()">{{'COMMON.CANCEL' | translate}}</button>
+    <button mat-raised-button color="primary">{{'COMMON.BOOK' | translate}}</button>
+  </mat-card-actions>
+</mat-card>
