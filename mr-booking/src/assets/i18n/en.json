@@ -4,14 +4,17 @@
 		"BOOK": "Book",
 		"CANCEL": "Cancel",
 		"CITY": "City",
+		"DATE": "Date",
 		"DELETE-CONFIRMATION": "Are you sure you want to delete?",
 		"DESCRIPTION": "Description",
 		"EMAIL": "Email",
+		"END": "End",
 		"NAME": "Name",
 		"OK": "OK",
 		"ROLE": "Role",
 		"ROOM": "Room",
 		"SAVE": "Save",
+		"START": "Start",
 		"TOOLS": "Tools"
 	},
 	"LOGIN": {
@@ -58,6 +61,7 @@
 		"EDITOR-TITLE": "Room editing",
 		"NAME": "Name",
 		"PROJECTOR": "Projector",
+		"ROOM_BOOKING": "Booking a room",
 		"SEATS-NUM": "Seats number",
 		"TABS": {
 			"ADD": "Add",

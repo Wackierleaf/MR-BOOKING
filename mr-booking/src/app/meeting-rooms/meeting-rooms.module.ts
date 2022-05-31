@@ -9,6 +9,7 @@ import { RoomsListComponent } from './rooms-list/rooms-list.component';
 import { AddNewRoomComponent } from './add-new-room/add-new-room.component';
 import { RoomEditorComponent } from './room-editor/room-editor.component';
 import { RoomViewComponent } from './room-view/room-view.component';
+import { BookingDialogComponent } from './booking-dialog/booking-dialog.component';
 
 
 
@@ -18,7 +19,8 @@ import { RoomViewComponent } from './room-view/room-view.component';
     RoomsListComponent,
     AddNewRoomComponent,
     RoomEditorComponent,
-    RoomViewComponent
+    RoomViewComponent,
+    BookingDialogComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,35 @@
+<div mat-dialog-title>{{'ROOMS_MANAGEMENT.ROOM_BOOKING' | translate}} : {{roomData.name}}</div>
+
+<div mat-dialog-content>
+  <form [formGroup]="bookingForm">
+    <mat-form-field appearance="outline">
+      <mat-label>{{'COMMON.DATE' | translate}}</mat-label>
+      <input readonly formControlName="date" matInput [min]="minDate | date: 'yyyy-MM-dd'" [matDatepicker]="datePicker" >
+      <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
+      <mat-datepicker #datePicker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="start">
+      <mat-label>{{'COMMON.START' | translate}}</mat-label>
+      <input matInput type="time" formControlName="start">
+      <mat-hint [style.visibility]="bookingForm.errors && bookingForm.errors['timeRange'] ? 'visible' : 'hidden'">
+        Неверное время
+      </mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>{{'COMMON.END' | translate}}</mat-label>
+      <input matInput type="time" formControlName="end">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="description">
+      <mat-label>{{'COMMON.DESCRIPTION' | translate}}</mat-label>
+      <textarea matInput cdkTextareaAutosize cdkAutosizeMaxRows="4" formControlName="eventDescription"></textarea>
+    </mat-form-field>
+  </form>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-raised-button [mat-dialog-close]>{{'COMMON.CANCEL' | translate}}</button>
+  <button mat-raised-button [disabled]="bookingForm.invalid" color="primary">{{'COMMON.BOOK' | translate}}</button>
+</div>
