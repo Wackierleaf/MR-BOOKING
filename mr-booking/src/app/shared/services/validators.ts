@@ -1,4 +1,6 @@
 import {FormGroup, ValidationErrors, ValidatorFn} from "@angular/forms";
+import {BookingData} from "../interfaces/booking-data";
+import {TimeHelper} from "./TimeHelper";
 
 export class NumberHelper {
   static Parse(arr: string[], index: number): number {
@@ -28,6 +30,20 @@ export function dateRangeValidator(startFieldName: string = 'start', endFieldNam
       return isRangeValid ? null : {timeRange: true}
     }
 
+    return null
+  }
+}
+
+export function checkIsTimePeriodFree(reservations: BookingData[],
+  startFieldName: string = 'start', dateFieldName: string = 'date'): ValidatorFn {
+  // @ts-ignore
+  return (form: FormGroup): ValidationErrors | null => {
+    if (form?.value[dateFieldName] && form?.value[startFieldName] && reservations.length > 0) {
+      const date = form.value[dateFieldName]
+      const startTime = TimeHelper.getDateObjectFromTimeStr(date, form.value[startFieldName])
+      const isPeriodFree = reservations.every(el => el.end < startTime)
+      return isPeriodFree ? null : {periodIsNotFree: true}
+    }
     return null
   }
 }

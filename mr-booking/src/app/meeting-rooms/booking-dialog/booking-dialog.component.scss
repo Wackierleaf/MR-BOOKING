@@ -9,12 +9,17 @@ form {
   column-gap: 5%;
 }
 
+mat-form-field {
+  margin-top: 20px;
+}
+
 mat-hint {
   color: #f44336;
 }
 
 .description {
   width: 50%;
+  height: fit-content;
 }
 
 @media (max-width: 500px) {
