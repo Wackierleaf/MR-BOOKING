@@ -1,9 +1,10 @@
 export interface BookingData {
   uid?: string
-  date: Date
-  start: Date
-  end: Date
+  date: Date | string
+  start: Date | string
+  end: Date | string
   roomId: string
   creatorId: string
+  creatorName?: string
   eventDescription: string
 }

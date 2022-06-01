@@ -1,6 +1,7 @@
 {
 	"COMMON": {
 		"ADD": "Add",
+		"BACK": "Back",
 		"BOOK": "Book",
 		"CANCEL": "Cancel",
 		"CITY": "City",
@@ -15,6 +16,7 @@
 		"ROOM": "Room",
 		"SAVE": "Save",
 		"START": "Start",
+		"TIME": "Time",
 		"TOOLS": "Tools"
 	},
 	"LOGIN": {
@@ -36,6 +38,9 @@
 			"LOGOUT": "Logout",
 			"PROFILE": "Profile"
 		}
+	},
+	"MEETINGS": {
+		"CREATOR_NAME": "Creator name"
 	},
 	"NAVIGATION": {
 		"MEETINGS_MANAGEMENT": "Meetings Management",

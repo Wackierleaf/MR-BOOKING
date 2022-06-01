@@ -3,23 +3,24 @@ import {AngularFirestore, AngularFirestoreDocument} from "@angular/fire/compat/f
 import {AngularFireAuth} from "@angular/fire/compat/auth";
 import {Router} from "@angular/router";
 import {User} from "../interfaces/user";
-import {Subject} from "rxjs";
+import {UserService} from "./user.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  userData: any
+  userData: User
 
   constructor(
     public afs: AngularFirestore,
     public afAuth: AngularFireAuth,
     public router: Router,
+    public userService: UserService
   ) {
 
     this.afAuth.authState.subscribe((user) => {
       if (user) {
-        this.userData = user
+        this.userService.getUser(user.uid).subscribe(userData => this.userData = userData as User)
         localStorage.setItem('user', JSON.stringify(user));
       } else {
         localStorage.setItem('user', 'null');

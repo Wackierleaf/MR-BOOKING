@@ -1,6 +1,7 @@
 {
 	"COMMON": {
 		"ADD": "Добавить",
+		"BACK": "Назад",
 		"BOOK": "Забронировать",
 		"CANCEL": "Отменить",
 		"CITY": "Город",
@@ -15,6 +16,7 @@
 		"ROOM": "Комната",
 		"SAVE": "Сохранить",
 		"START": "Начало",
+		"TIME": "Время",
 		"TOOLS": "Оборудование"
 	},
 	"LOGIN": {
@@ -36,6 +38,9 @@
 			"LOGOUT": "Выйти",
 			"PROFILE": "Профиль"
 		}
+	},
+	"MEETINGS": {
+		"CREATOR_NAME": "Создатель"
 	},
 	"NAVIGATION": {
 		"MEETINGS_MANAGEMENT": "Встречи",
