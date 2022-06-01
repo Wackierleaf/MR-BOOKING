@@ -4,7 +4,7 @@ import {marker as _} from '@biesbjerg/ngx-translate-extract-marker';
 import {UserService} from "../../shared/services/user.service";
 import {Observable, Subscription} from "rxjs";
 import {AuthService} from "../../shared/services/auth.service";
-import {User} from "../../shared/services/user";
+import {User} from "../../shared/interfaces/user";
 
 @Component({
   selector: 'app-header',

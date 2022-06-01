@@ -2,7 +2,8 @@ import {Injectable} from '@angular/core';
 import {Observable} from "rxjs";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {AngularFireStorage} from "@angular/fire/compat/storage";
-import {Room} from "./room";
+import {Room} from "../interfaces/room";
+import {BookingData} from "../interfaces/booking-data";
 
 @Injectable({
   providedIn: 'root'

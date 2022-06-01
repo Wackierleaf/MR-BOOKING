@@ -2,9 +2,12 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Observable, Subscription} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
 import {RoomsService} from "../../shared/services/rooms.service";
-import {Room} from "../../shared/services/room";
+import {Room} from "../../shared/interfaces/room";
 import {MatDialog} from "@angular/material/dialog";
 import {BookingDialogComponent} from "../booking-dialog/booking-dialog.component";
+import {TimeHelper} from "../../shared/services/TimeHelper";
+import {BookingData} from "../../shared/interfaces/booking-data";
+import {BookingService} from "../../shared/services/booking.service";
 
 @Component({
   selector: 'app-room-view',
@@ -20,7 +23,8 @@ export class RoomViewComponent implements OnInit, OnDestroy {
     private readonly route: ActivatedRoute,
     private readonly router: Router,
     private readonly roomService: RoomsService,
-    private readonly dialog: MatDialog
+    private readonly dialog: MatDialog,
+    private readonly bookingService: BookingService
   ) { }
 
   ngOnInit(): void {
@@ -43,6 +47,18 @@ export class RoomViewComponent implements OnInit, OnDestroy {
       height: 'fit-content',
       data: {...this.roomData}
     })
+
+    this.subList$.add(
+      dialogRef.afterClosed().subscribe(async result => {
+        const booking: BookingData = {
+          date: result.date,
+          start: TimeHelper.getDateObjectFromTimeStr(result.date, result.start),
+          end: TimeHelper.getDateObjectFromTimeStr(result.date, result.end),
+          eventDescription: result.eventDescription
+        }
+        await this.bookingService.bookRoom(booking)
+      })
+    )
   }
 
   ngOnDestroy() {

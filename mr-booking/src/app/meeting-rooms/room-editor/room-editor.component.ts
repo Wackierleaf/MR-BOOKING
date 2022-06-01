@@ -3,7 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {RoomsService} from "../../shared/services/rooms.service";
 import {Subscription} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
-import {Room} from "../../shared/services/room";
+import {Room} from "../../shared/interfaces/room";
 
 @Component({
   selector: 'app-room-editor',

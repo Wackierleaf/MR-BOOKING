@@ -1,6 +1,6 @@
 import {FormGroup, ValidationErrors, ValidatorFn} from "@angular/forms";
 
-class NumberHelper {
+export class NumberHelper {
   static Parse(arr: string[], index: number): number {
     if (!arr || index < 0 || arr.length <= index) {
       return NaN;

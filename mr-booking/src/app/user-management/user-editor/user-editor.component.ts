@@ -2,7 +2,7 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MyErrorStateMatcher} from "../../shared/services/ErrorStateMatcher";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
-import {User} from "../../shared/services/user";
+import {User} from "../../shared/interfaces/user";
 import {Roles} from "../../shared/services/user.service";
 
 @Component({

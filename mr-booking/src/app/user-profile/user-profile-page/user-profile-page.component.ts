@@ -3,7 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Roles, UserService} from "../../shared/services/user.service";
 import {ActivatedRoute} from "@angular/router";
 import {Subscription} from "rxjs";
-import {User} from "../../shared/services/user";
+import {User} from "../../shared/interfaces/user";
 
 @Component({
   selector: 'app-user-profile-page',

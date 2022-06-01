@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
-import {Room} from "../../shared/services/room";
+import {Room} from "../../shared/interfaces/room";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {dateRangeValidator} from "../../shared/services/validators";
 

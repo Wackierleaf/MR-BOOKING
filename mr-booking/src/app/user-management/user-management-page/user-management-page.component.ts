@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {UserService} from "../../shared/services/user.service";
 import {debounceTime, distinctUntilChanged, Subscription} from "rxjs";
-import {User} from "../../shared/services/user";
+import {User} from "../../shared/interfaces/user";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatDialog} from "@angular/material/dialog";
 import {DeleteConfirmationComponent} from "../../general-components/delete-confirmation/delete-confirmation.component";

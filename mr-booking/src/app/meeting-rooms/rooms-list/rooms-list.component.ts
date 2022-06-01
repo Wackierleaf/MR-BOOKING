@@ -1,6 +1,6 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
-import {Room} from "../../shared/services/room";
+import {Room} from "../../shared/interfaces/room";
 import {debounceTime, distinctUntilChanged, Subscription} from "rxjs";
 import {RoomsService} from "../../shared/services/rooms.service";
 import {DeleteConfirmationComponent} from "../../general-components/delete-confirmation/delete-confirmation.component";
