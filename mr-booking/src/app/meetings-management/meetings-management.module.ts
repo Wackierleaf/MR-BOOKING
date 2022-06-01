@@ -5,12 +5,14 @@ import {MeetingsManagementRoutingModule} from "./meetings-management-routing.mod
 import {MaterialExModule} from "../shared/modules/material-ex.module";
 import {TranslateModule} from "@ngx-translate/core";
 import {ReactiveFormsModule} from "@angular/forms";
+import { MeetingsListComponent } from './meetings-list/meetings-list.component';
 
 
 
 @NgModule({
   declarations: [
-    MeetingsPageComponent
+    MeetingsPageComponent,
+    MeetingsListComponent
   ],
   imports: [
     CommonModule,

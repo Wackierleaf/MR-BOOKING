@@ -7,4 +7,5 @@ export interface BookingData {
   creatorId: string
   creatorName: string
   eventDescription: string
+  roomName: string
 }

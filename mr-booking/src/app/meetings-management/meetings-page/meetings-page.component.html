@@ -1,1 +1,20 @@
-<span>meetings</span>
+<mat-card class="meetings-management">
+  <mat-card-header>
+    <mat-card-title>
+      <div class="header-content">
+        <mat-icon>groups</mat-icon>
+        <span>{{'MEETINGS-MANAGEMENT.TITLE' | translate}}</span>
+      </div>
+    </mat-card-title>
+  </mat-card-header>
+
+  <mat-form-field appearance="outline" class="search">
+    <mat-label>Search</mat-label>
+    <input autocomplete="off" matInput [formControl]="searchControl" minlength="3">
+    <mat-hint>{{'ERRORS.3_MINIMUM_CHARS' | translate}}</mat-hint>
+  </mat-form-field>
+
+  <mat-card-content>
+    <app-meetings-list [searchControl]="searchControl"></app-meetings-list>
+  </mat-card-content>
+</mat-card>

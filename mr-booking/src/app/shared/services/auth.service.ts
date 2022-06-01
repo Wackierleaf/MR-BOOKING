@@ -17,7 +17,6 @@ export class AuthService {
     public router: Router,
     public userService: UserService
   ) {
-
     this.afAuth.authState.subscribe((user) => {
       if (user) {
         this.userService.getUser(user.uid).subscribe(userData => this.userData = userData as User)
