@@ -19,6 +19,9 @@
 		"TIME": "Время",
 		"TOOLS": "Оборудование"
 	},
+	"ERRORS": {
+		"3_MINIMUM_CHARS": "Минимум 3 символа"
+	},
 	"LOGIN": {
 		"EMAIL-ERROR": "Введите правильный email",
 		"EMAIL-LABEL": "Введите email",
@@ -38,6 +41,9 @@
 			"LOGOUT": "Выйти",
 			"PROFILE": "Профиль"
 		}
+	},
+	"MEETINGS-MANAGEMENT": {
+		"TITLE": ""
 	},
 	"MEETINGS": {
 		"CREATOR_NAME": "Создатель"

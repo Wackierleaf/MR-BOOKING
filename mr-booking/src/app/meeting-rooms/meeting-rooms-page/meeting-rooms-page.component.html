@@ -11,7 +11,7 @@
   <mat-form-field appearance="outline" class="search">
     <mat-label>Search</mat-label>
     <input matInput [formControl]="searchControl" minlength="3">
-    <mat-hint>Minimum 3 characters</mat-hint>
+    <mat-hint>{{'ERRORS.3_MINIMUM_CHARS' | translate}}</mat-hint>
   </mat-form-field>
 
   <mat-card-content>

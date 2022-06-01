@@ -19,6 +19,9 @@
 		"TIME": "Time",
 		"TOOLS": "Tools"
 	},
+	"ERRORS": {
+		"3_MINIMUM_CHARS": "Minimum 3 characters"
+	},
 	"LOGIN": {
 		"EMAIL-ERROR": "Please enter a valid email",
 		"EMAIL-LABEL": "Enter your email",
@@ -38,6 +41,9 @@
 			"LOGOUT": "Logout",
 			"PROFILE": "Profile"
 		}
+	},
+	"MEETINGS-MANAGEMENT": {
+		"TITLE": ""
 	},
 	"MEETINGS": {
 		"CREATOR_NAME": "Creator name"
