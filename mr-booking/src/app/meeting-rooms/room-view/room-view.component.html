@@ -6,12 +6,18 @@
     <div class="options">
       <mat-divider></mat-divider>
       <div class="option">
-        <mat-icon>check_circle</mat-icon>
+        <mat-icon *ngIf="room.whiteboard; else noBoard">check_circle</mat-icon>
+        <ng-template #noBoard>
+          <mat-icon>radio_button_unchecked</mat-icon>
+        </ng-template>
         <span>{{'ROOMS_MANAGEMENT.WHITEBOARD' | translate}}</span>
       </div>
       <mat-divider></mat-divider>
       <div class="option">
-        <mat-icon>check_circle</mat-icon>
+        <mat-icon *ngIf="room.projector; else noProj">check_circle</mat-icon>
+        <ng-template #noProj>
+          <mat-icon>radio_button_unchecked</mat-icon>
+        </ng-template>
         <span>{{'ROOMS_MANAGEMENT.PROJECTOR' | translate}}</span>
       </div>
     </div>
