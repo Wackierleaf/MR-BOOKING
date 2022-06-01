@@ -5,6 +5,6 @@ export interface BookingData {
   end: Date | string
   roomId: string
   creatorId: string
-  creatorName?: string
+  creatorName: string
   eventDescription: string
 }

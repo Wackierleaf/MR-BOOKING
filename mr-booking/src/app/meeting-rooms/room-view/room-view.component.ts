@@ -67,7 +67,7 @@ export class RoomViewComponent implements OnInit, OnDestroy {
         const booking: BookingData = {
           roomId: result.roomId,
           creatorId: this.authService.userData.uid,
-          creatorName: this.authService.userData.displayName,
+          creatorName: this.authService.userData.displayName as string,
           date: result.date.toISOString(),
           start: TimeHelper.getDateObjectFromTimeStr(result.date, result.start).toISOString(),
           end: TimeHelper.getDateObjectFromTimeStr(result.date, result.end).toISOString(),
