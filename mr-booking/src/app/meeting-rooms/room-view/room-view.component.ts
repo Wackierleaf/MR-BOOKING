@@ -8,6 +8,7 @@ import {BookingDialogComponent} from "../booking-dialog/booking-dialog.component
 import {TimeHelper} from "../../shared/services/TimeHelper";
 import {BookingData} from "../../shared/interfaces/booking-data";
 import {BookingService} from "../../shared/services/booking.service";
+import {AuthService} from "../../shared/services/auth.service";
 
 @Component({
   selector: 'app-room-view',
@@ -24,7 +25,8 @@ export class RoomViewComponent implements OnInit, OnDestroy {
     private readonly router: Router,
     private readonly roomService: RoomsService,
     private readonly dialog: MatDialog,
-    private readonly bookingService: BookingService
+    private readonly bookingService: BookingService,
+    private readonly authService: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -51,6 +53,8 @@ export class RoomViewComponent implements OnInit, OnDestroy {
     this.subList$.add(
       dialogRef.afterClosed().subscribe(async result => {
         const booking: BookingData = {
+          roomId: result.roomId,
+          creatorId: this.authService.userData.uid,
           date: result.date,
           start: TimeHelper.getDateObjectFromTimeStr(result.date, result.start),
           end: TimeHelper.getDateObjectFromTimeStr(result.date, result.end),

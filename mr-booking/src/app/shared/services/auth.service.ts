@@ -9,7 +9,7 @@ import {Subject} from "rxjs";
   providedIn: 'root'
 })
 export class AuthService {
-  userData: Subject<any> | null = new Subject<any>();
+  userData: any
 
   constructor(
     public afs: AngularFirestore,
@@ -19,7 +19,7 @@ export class AuthService {
 
     this.afAuth.authState.subscribe((user) => {
       if (user) {
-        this.userData?.next(user);
+        this.userData = user
         localStorage.setItem('user', JSON.stringify(user));
       } else {
         localStorage.setItem('user', 'null');

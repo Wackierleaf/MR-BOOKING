@@ -19,6 +19,7 @@ export class BookingDialogComponent implements OnInit {
   ) { }
   private init() {
     this.bookingForm = this.formBuilder.group({
+      roomId: [this.roomData.uid],
       date: [null, Validators.required],
       start: [null, Validators.required],
       end: [null, Validators.required],

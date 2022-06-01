@@ -3,5 +3,7 @@ export interface BookingData {
   date: Date
   start: Date
   end: Date
+  roomId: string
+  creatorId: string
   eventDescription: string
 }

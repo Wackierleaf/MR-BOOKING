@@ -12,6 +12,11 @@ export class BookingService {
   ) { }
 
   bookRoom(data: BookingData) {
-    return this.afs.collection('mr-reservations').add(data)
+    return this.afs.collection<BookingData>('mr-reservations').add(data)
+  }
+
+  getReservationsByRoomId(roomId: string) {
+    return this.afs.collection<BookingData[]>('mr-reservations', ref => ref
+      .where('roomId', '==', roomId)).valueChanges()
   }
 }
