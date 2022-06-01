@@ -6,3 +6,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 button {
   font-size: 13pt !important;
 }
+
+mat-card-content, mat-dialog-content {
+  overflow: initial !important;
+}
+
+mat-sidenav-content {
+  overflow-x: hidden !important;
+}
