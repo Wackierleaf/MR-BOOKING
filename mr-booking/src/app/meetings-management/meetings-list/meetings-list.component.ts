@@ -5,6 +5,10 @@ import {BookingService} from "../../shared/services/booking.service";
 import {AuthService} from "../../shared/services/auth.service";
 import {FormControl} from "@angular/forms";
 import {debounceTime, distinctUntilChanged, Subscription} from "rxjs";
+import {MatDialog} from "@angular/material/dialog";
+import {
+  CancellationConfirmationComponent
+} from "../../general-components/cancellation-confirmation/cancellation-confirmation.component";
 
 @Component({
   selector: 'app-meetings-list',
@@ -13,13 +17,14 @@ import {debounceTime, distinctUntilChanged, Subscription} from "rxjs";
 })
 export class MeetingsListComponent implements OnInit, OnDestroy {
   @Input() searchControl: FormControl
-  displayedColumns = ['date', 'roomName', 'timePeriod', 'description', 'creatorName']
+  displayedColumns = ['date', 'roomName', 'timePeriod', 'description', 'creatorName', 'actions']
   meetings = new MatTableDataSource<BookingData>([])
 
   private readonly subList$ = new Subscription()
   constructor(
     private readonly bookingService: BookingService,
-    private readonly authService: AuthService
+    public readonly authService: AuthService,
+    private readonly dialog: MatDialog,
   ) { }
 
   private initDataSource() {
@@ -55,5 +60,15 @@ export class MeetingsListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subList$.unsubscribe()
+  }
+
+  cancelMeeting(reservation: BookingData) {
+    const dialogRef = this.dialog.open(CancellationConfirmationComponent)
+
+    dialogRef.afterClosed().subscribe(async result => {
+      if(result && reservation.uid) {
+        await this.bookingService.deleteReservation(reservation.uid)
+      }
+    })
   }
 }
