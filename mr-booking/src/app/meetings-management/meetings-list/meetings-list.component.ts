@@ -26,10 +26,7 @@ export class MeetingsListComponent implements OnInit, OnDestroy {
     const authSub$ = this.authService.afAuth.authState.subscribe(user => {
       this.subList$.add(
         this.bookingService.getMeetingsForUser(user?.uid as string)
-          .subscribe(meetings => {
-            this.meetings.data = meetings
-            console.log(meetings, user?.uid)
-          })
+          .subscribe(meetings => this.meetings.data = meetings)
       )
     })
     this.subList$.add(authSub$)

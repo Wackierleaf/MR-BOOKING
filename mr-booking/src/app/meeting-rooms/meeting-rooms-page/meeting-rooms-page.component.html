@@ -19,7 +19,7 @@
       <mat-tab [label]="'ROOMS_MANAGEMENT.TABS.LIST' | translate">
         <app-rooms-list [searchControl]="searchControl"></app-rooms-list>
       </mat-tab>
-      <mat-tab [label]="'ROOMS_MANAGEMENT.TABS.ADD' | translate">
+      <mat-tab *ngIf="auth.userData.role === 'ADMIN'" [label]="'ROOMS_MANAGEMENT.TABS.ADD' | translate">
         <app-add-new-room (tabIdxChanged)="switchTab($event)"></app-add-new-room>
       </mat-tab>
     </mat-tab-group>

@@ -7,6 +7,7 @@ import {DeleteConfirmationComponent} from "../../general-components/delete-confi
 import {MatDialog} from "@angular/material/dialog";
 import {FormControl} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
+import {AuthService} from "../../shared/services/auth.service";
 
 @Component({
   selector: 'app-rooms-list',
@@ -25,6 +26,7 @@ export class RoomsListComponent implements OnInit, OnDestroy {
     private readonly router: Router,
     private readonly activatedRoute: ActivatedRoute,
     public dialog: MatDialog,
+    public auth: AuthService
   ) {
   }
 

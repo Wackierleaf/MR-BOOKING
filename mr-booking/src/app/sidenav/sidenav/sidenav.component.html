@@ -2,7 +2,7 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav class="sidenav" #nav mode="side">
     <mat-nav-list>
-      <a mat-list-item routerLink="user-management">{{'NAVIGATION.USER_MANAGEMENT' | translate}}</a>
+      <a *ngIf="auth.userData?.role === 'ADMIN'" mat-list-item routerLink="user-management">{{'NAVIGATION.USER_MANAGEMENT' | translate}}</a>
       <a mat-list-item routerLink="mr-management">{{'NAVIGATION.ROOMS_MANAGEMENT' | translate}}</a>
       <a mat-list-item routerLink="meetings-management">{{'NAVIGATION.MEETINGS_MANAGEMENT' | translate}}</a>
     </mat-nav-list>
