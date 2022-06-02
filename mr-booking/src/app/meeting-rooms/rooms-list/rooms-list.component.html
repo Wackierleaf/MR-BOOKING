@@ -28,11 +28,11 @@
     <th class="actions" mat-header-cell *matHeaderCellDef></th>
     <td class="actions" mat-cell *matCellDef="let room">
       <div *ngIf="auth.userData.role === 'ADMIN'">
-        <button (click)="editRoom(room)" mat-icon-button  >
+        <button (click)="editRoom(room); $event.stopPropagation()" mat-icon-button  >
           <mat-icon>edit</mat-icon>
         </button>
 
-        <button (click)="deleteRoom(room.uid)" mat-icon-button color="warn">
+        <button (click)="deleteRoom(room.uid); $event.stopPropagation()" mat-icon-button color="warn">
           <mat-icon>delete</mat-icon>
         </button>
       </div>
