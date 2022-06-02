@@ -9,6 +9,8 @@ import {MatDialog} from "@angular/material/dialog";
 import {
   CancellationConfirmationComponent
 } from "../../general-components/cancellation-confirmation/cancellation-confirmation.component";
+import {BookingDialogComponent} from "../../meeting-rooms/booking-dialog/booking-dialog.component";
+import {TimeHelper} from "../../shared/services/TimeHelper";
 
 @Component({
   selector: 'app-meetings-list',
@@ -21,11 +23,13 @@ export class MeetingsListComponent implements OnInit, OnDestroy {
   meetings = new MatTableDataSource<BookingData>([])
 
   private readonly subList$ = new Subscription()
+
   constructor(
     private readonly bookingService: BookingService,
     public readonly authService: AuthService,
     private readonly dialog: MatDialog,
-  ) { }
+  ) {
+  }
 
   private initDataSource() {
     const authSub$ = this.authService.afAuth.authState.subscribe(user => {
@@ -43,7 +47,7 @@ export class MeetingsListComponent implements OnInit, OnDestroy {
         debounceTime(500),
         distinctUntilChanged(),
       ).subscribe(searchVal => {
-        if(searchVal && searchVal.length >= 3) {
+        if (searchVal && searchVal.length >= 3) {
           this.bookingService.searchMeetingByRoomNameAndDescription(searchVal)
             .subscribe(searchRes => this.meetings.data = searchRes)
         } else {
@@ -58,17 +62,39 @@ export class MeetingsListComponent implements OnInit, OnDestroy {
     this.initDataSource()
   }
 
-  ngOnDestroy() {
-    this.subList$.unsubscribe()
-  }
-
   cancelMeeting(reservation: BookingData) {
     const dialogRef = this.dialog.open(CancellationConfirmationComponent)
 
     dialogRef.afterClosed().subscribe(async result => {
-      if(result && reservation.uid) {
+      if (result && reservation.uid) {
         await this.bookingService.deleteReservation(reservation.uid)
       }
     })
+  }
+
+  editMeeting(reservation: BookingData) {
+    const dialogRef = this.dialog.open(BookingDialogComponent, {
+      width: window.innerWidth < 500 ? '100%' : 'fit-content',
+      maxWidth: window.innerWidth < 500 ? '100%' : 'fit-content',
+      height: window.innerWidth < 500 ? '100%' : 'fit-content',
+      data: {mode: 'edit', ...reservation}
+    })
+
+    this.subList$.add(
+      dialogRef.afterClosed().subscribe(async result => {
+        if (result) {
+          reservation.date = result.date.toLocaleString()
+          reservation.start = TimeHelper.getDateObjectFromTimeStr(result.date, result.start).toLocaleString()
+          reservation.end = TimeHelper.getDateObjectFromTimeStr(result.date, result.end).toLocaleString()
+          reservation.participantsIds = result.participantsIds
+          reservation.eventDescription = result.eventDescription
+          await this.bookingService.updateReservation(reservation)
+        }
+      })
+    )
+  }
+
+  ngOnDestroy() {
+    this.subList$.unsubscribe()
   }
 }

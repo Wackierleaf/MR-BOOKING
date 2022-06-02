@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {BookingData} from "../interfaces/booking-data";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
-import {forkJoin, map, zip} from "rxjs";
+import {map, zip} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -38,8 +38,13 @@ export class BookingService {
 
   getMeetingsForUser(id: string) {
     return this.afs.collection<BookingData>(this.collectionName, ref => ref
-      .where('participants', 'array-contains', id))
+      .where('participantsIds', 'array-contains', id))
       .valueChanges({idField: 'uid'})
+      .pipe(map(meetings => this.fixDates(meetings)))
+  }
+
+  updateReservation(newReservationData: BookingData) {
+    return this.afs.doc<BookingData>(`${this.collectionName}/${newReservationData.uid}`).set(newReservationData, {merge: true})
   }
 
   searchMeetingByRoomNameAndDescription(searchStr: string) {

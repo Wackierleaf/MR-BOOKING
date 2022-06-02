@@ -5,7 +5,6 @@
 		"BOOK": "Book",
 		"CANCEL": "Cancel",
 		"CANCEL-CONFORMATION": "Are you sure you want to cancel?",
-		"CANCEL-REASON": "Reason for cancellation",
 		"CITY": "City",
 		"DATA": "Data",
 		"DATE": "Date",
@@ -49,6 +48,7 @@
 		}
 	},
 	"MEETINGS-MANAGEMENT": {
+		"EDIT-TITLE": "Meeting editing",
 		"TITLE": "Meetings"
 	},
 	"MEETINGS": {
@@ -79,7 +79,7 @@
 		"EDITOR-TITLE": "Room editing",
 		"NAME": "Name",
 		"PROJECTOR": "Projector",
-		"ROOM_BOOKING": "Booking a room",
+		"ROOM_BOOKING": "Booking a room: ",
 		"SEATS-NUM": "Seats number",
 		"TABS": {
 			"ADD": "Add",

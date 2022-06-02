@@ -58,7 +58,7 @@ export class RoomViewComponent implements OnInit, OnDestroy {
       width:  window.innerWidth < 500 ? '100%' : 'fit-content',
       maxWidth: window.innerWidth < 500 ? '100%' : 'fit-content',
       height:  window.innerWidth < 500 ? '100%' : 'fit-content',
-      data: {...this.roomData}
+      data: {mode: 'add', ...this.roomData}
     })
 
     this.subList$.add(
@@ -71,11 +71,11 @@ export class RoomViewComponent implements OnInit, OnDestroy {
           roomName: result.roomName,
           creatorId: this.authService.userData.uid,
           creatorName: this.authService.userData.displayName as string,
-          date: result.date.toISOString(),
-          start: TimeHelper.getDateObjectFromTimeStr(result.date, result.start).toISOString(),
-          end: TimeHelper.getDateObjectFromTimeStr(result.date, result.end).toISOString(),
+          date: result.date.toLocaleString(),
+          start: TimeHelper.getDateObjectFromTimeStr(result.date, result.start).toLocaleString(),
+          end: TimeHelper.getDateObjectFromTimeStr(result.date, result.end).toLocaleString(),
           eventDescription: result.eventDescription,
-          participants: result.participantsIds
+          participantsIds: result.participantsIds
         }
         await this.bookingService.bookRoom(booking)
       })

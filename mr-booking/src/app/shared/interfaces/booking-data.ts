@@ -10,5 +10,5 @@ export interface BookingData {
   creatorName: string
   eventDescription: string
   roomName: string
-  participants: User[]
+  participantsIds: User[]
 }
