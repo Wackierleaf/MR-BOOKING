@@ -1,3 +1,5 @@
+import {User} from "./user";
+
 export interface BookingData {
   uid?: string
   date: Date | string
@@ -8,4 +10,5 @@ export interface BookingData {
   creatorName: string
   eventDescription: string
   roomName: string
+  participants: User[]
 }

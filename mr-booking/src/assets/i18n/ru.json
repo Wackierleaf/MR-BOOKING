@@ -5,6 +5,7 @@
 		"BOOK": "Забронировать",
 		"CANCEL": "Отменить",
 		"CITY": "Город",
+		"DATA": "Информация",
 		"DATE": "Дата",
 		"DELETE-CONFIRMATION": "Вы уверены что хотите удалить?",
 		"DESCRIPTION": "Описание",
@@ -12,6 +13,7 @@
 		"END": "Конец",
 		"NAME": "Имя",
 		"OK": "OK",
+		"PARTICIPANTS": "Участники",
 		"ROLE": "Роль",
 		"ROOM": "Комната",
 		"SAVE": "Сохранить",
@@ -20,7 +22,9 @@
 		"TOOLS": "Оборудование"
 	},
 	"ERRORS": {
-		"3_MINIMUM_CHARS": "Минимум 3 символа"
+		"3_MINIMUM_CHARS": "Минимум 3 символа",
+		"PERIOD-NOT-FREE": "Время занято",
+		"WRONG-INTERVAL": "Неверный интервал"
 	},
 	"LOGIN": {
 		"EMAIL-ERROR": "Введите правильный email",

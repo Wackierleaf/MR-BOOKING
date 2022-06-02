@@ -5,6 +5,7 @@
 		"BOOK": "Book",
 		"CANCEL": "Cancel",
 		"CITY": "City",
+		"DATA": "Data",
 		"DATE": "Date",
 		"DELETE-CONFIRMATION": "Are you sure you want to delete?",
 		"DESCRIPTION": "Description",
@@ -12,6 +13,7 @@
 		"END": "End",
 		"NAME": "Name",
 		"OK": "OK",
+		"PARTICIPANTS": "Participants",
 		"ROLE": "Role",
 		"ROOM": "Room",
 		"SAVE": "Save",
@@ -20,7 +22,9 @@
 		"TOOLS": "Tools"
 	},
 	"ERRORS": {
-		"3_MINIMUM_CHARS": "Minimum 3 characters"
+		"3_MINIMUM_CHARS": "Minimum 3 characters",
+		"PERIOD-NOT-FREE": "Period is not free",
+		"WRONG-INTERVAL": "Wrong interval"
 	},
 	"LOGIN": {
 		"EMAIL-ERROR": "Please enter a valid email",

@@ -52,8 +52,9 @@ export class RoomViewComponent implements OnInit, OnDestroy {
 
   openBookingDialog() {
     const dialogRef = this.dialog.open(BookingDialogComponent, {
-      width: 'fit-content',
-      height: 'fit-content',
+      width:  window.innerWidth < 500 ? '100%' : 'fit-content',
+      maxWidth: window.innerWidth < 500 ? '100%' : 'fit-content',
+      height:  window.innerWidth < 500 ? '100%' : 'fit-content',
       data: {...this.roomData}
     })
 
@@ -71,6 +72,7 @@ export class RoomViewComponent implements OnInit, OnDestroy {
           start: TimeHelper.getDateObjectFromTimeStr(result.date, result.start).toISOString(),
           end: TimeHelper.getDateObjectFromTimeStr(result.date, result.end).toISOString(),
           eventDescription: result.eventDescription,
+          participants: result.participants
         }
         await this.bookingService.bookRoom(booking)
       })
