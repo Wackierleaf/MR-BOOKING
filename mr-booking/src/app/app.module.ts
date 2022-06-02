@@ -21,6 +21,7 @@ import {ToolbarModule} from "./toolbar/toolbar.module";
 import {UserService} from "./shared/services/user.service";
 import {DeleteConfirmationComponent} from './general-components/delete-confirmation/delete-confirmation.component';
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+import { CancellationConfirmationComponent } from './general-components/cancellation-confirmation/cancellation-confirmation.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -30,6 +31,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AppComponent,
     DeleteConfirmationComponent,
+    CancellationConfirmationComponent,
   ],
   imports: [
     ToolbarModule,

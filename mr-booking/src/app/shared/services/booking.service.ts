@@ -32,6 +32,10 @@ export class BookingService {
     )
   }
 
+  deleteReservation(id: string) {
+    return this.afs.doc<BookingData>(`${this.collectionName}/${id}`).delete()
+  }
+
   getMeetingsForUser(id: string) {
     return this.afs.collection<BookingData>(this.collectionName, ref => ref
       .where('participants', 'array-contains', id))

@@ -4,6 +4,8 @@
 		"BACK": "Back",
 		"BOOK": "Book",
 		"CANCEL": "Cancel",
+		"CANCEL-CONFORMATION": "Are you sure you want to cancel?",
+		"CANCEL-REASON": "Reason for cancellation",
 		"CITY": "City",
 		"DATA": "Data",
 		"DATE": "Date",
@@ -72,6 +74,7 @@
 		"REGISTER": "Register"
 	},
 	"ROOMS_MANAGEMENT": {
+		"CANCEL_MEETING": "Cancel meeting",
 		"CREATION-TITLE": "Room creation",
 		"EDITOR-TITLE": "Room editing",
 		"NAME": "Name",

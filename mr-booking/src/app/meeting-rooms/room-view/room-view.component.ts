@@ -10,6 +10,9 @@ import {BookingData} from "../../shared/interfaces/booking-data";
 import {BookingService} from "../../shared/services/booking.service";
 import {AuthService} from "../../shared/services/auth.service";
 import {MatTableDataSource} from "@angular/material/table";
+import {
+  CancellationConfirmationComponent
+} from "../../general-components/cancellation-confirmation/cancellation-confirmation.component";
 
 @Component({
   selector: 'app-room-view',
@@ -20,7 +23,7 @@ export class RoomViewComponent implements OnInit, OnDestroy {
   room$: Observable<Room>
   roomData: Room
   roomReservations = new MatTableDataSource<BookingData>([]);
-  displayedColumns = ['date', 'timePeriod', 'creatorName']
+  displayedColumns = ['date', 'timePeriod', 'creatorName', 'actions']
 
   private subList$ = new Subscription()
   constructor(
@@ -29,7 +32,7 @@ export class RoomViewComponent implements OnInit, OnDestroy {
     private readonly roomService: RoomsService,
     private readonly dialog: MatDialog,
     private readonly bookingService: BookingService,
-    private readonly authService: AuthService
+    public readonly authService: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -81,5 +84,15 @@ export class RoomViewComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subList$.unsubscribe()
+  }
+
+  cancelMeeting(reservation: BookingData) {
+    const dialogRef = this.dialog.open(CancellationConfirmationComponent)
+
+    dialogRef.afterClosed().subscribe(async result => {
+      if(result && reservation.uid) {
+        await this.bookingService.deleteReservation(reservation.uid)
+      }
+    })
   }
 }

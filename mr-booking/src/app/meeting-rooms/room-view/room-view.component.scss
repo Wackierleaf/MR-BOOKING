@@ -13,6 +13,11 @@ table {
   width: 100%;
 }
 
+textarea {
+  max-height: 100% !important;
+  height: 100% !important;
+}
+
 mat-card-content {
   font-size: 15pt;
   margin-bottom: 10px;
@@ -20,6 +25,14 @@ mat-card-content {
 
 .description {
   width: 60%;
+}
+
+mat-icon {
+  font-size: 30px;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  margin-right: 10px;
 }
 
 .header {
@@ -37,14 +50,6 @@ mat-divider {
     display: flex;
     align-items: center;
     margin: 10px;
-
-    mat-icon {
-      font-size: 30px;
-      width: 30px;
-      height: 30px;
-      line-height: 30px;
-      margin-right: 10px;
-    }
   }
 }
 

@@ -4,6 +4,8 @@
 		"BACK": "Назад",
 		"BOOK": "Забронировать",
 		"CANCEL": "Отменить",
+		"CANCEL-CONFORMATION": "Вы уверены что хотите отменить?",
+		"CANCEL-REASON": "Причина отмены",
 		"CITY": "Город",
 		"DATA": "Информация",
 		"DATE": "Дата",
@@ -72,6 +74,7 @@
 		"REGISTER": "Зарегистрироваться"
 	},
 	"ROOMS_MANAGEMENT": {
+		"CANCEL_MEETING": "Отменить встречу",
 		"CREATION-TITLE": "Новая комната",
 		"EDITOR-TITLE": "Редактирование комнаты",
 		"NAME": "Название",
