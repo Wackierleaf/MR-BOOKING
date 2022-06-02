@@ -32,11 +32,10 @@ export class BookingService {
     )
   }
 
-  getMeetingsByCreatorId(creatorId: string) {
+  getMeetingsForUser(id: string) {
     return this.afs.collection<BookingData>(this.collectionName, ref => ref
-      .where('creatorId', '==', creatorId)).valueChanges({idField: 'uid'}).pipe(
-        map(reservations => this.fixDates(reservations))
-    )
+      .where('participants', 'array-contains', id))
+      .valueChanges({idField: 'uid'})
   }
 
   searchMeetingByRoomNameAndDescription(searchStr: string) {

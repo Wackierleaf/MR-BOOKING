@@ -20,7 +20,7 @@ import {user} from "@angular/fire/auth";
 export class BookingDialogComponent implements OnInit {
   bookingForm: FormGroup
   users = new MatTableDataSource<User>([])
-  participants: User[] = []
+  participantsIds: string[] = []
   columns = ['name']
   minDate = new Date()
   reservations: BookingData[]
@@ -40,13 +40,14 @@ export class BookingDialogComponent implements OnInit {
       start: [null, Validators.required],
       end: [null, Validators.required],
       eventDescription: [null, Validators.required],
-      participants: [null, [Validators.required, Validators.maxLength(this.roomData.seats)]]
+      participantsIds: [null, [Validators.required, Validators.maxLength(this.roomData.seats)]]
     }, {
       validators: [dateRangeValidator(), checkIsTimePeriodFree(this.reservations)]
     })
   }
 
   ngOnInit(): void {
+    this.participantsIds.push(this.authService.userData.uid)
     this.userService.users.pipe(
       map(users => users.filter(user => user.uid !== this.authService.userData.uid))
     ).subscribe(usersData => this.users.data = usersData)
@@ -58,11 +59,11 @@ export class BookingDialogComponent implements OnInit {
   }
 
   addUserInParticipants(user: User) {
-    if(this.participants.find(participant => participant.uid === user.uid)) {
-      this.participants = this.participants.filter(participant => participant.uid !== user.uid)
+    if(this.participantsIds.find(participantsId => participantsId === user.uid)) {
+      this.participantsIds = this.participantsIds.filter(participantsId => participantsId !== user.uid)
     } else {
-      this.participants.push(user)
+      this.participantsIds.push(user.uid)
     }
-    this.bookingForm.get('participants')?.patchValue(this.participants)
+    this.bookingForm.get('participantsIds')?.patchValue(this.participantsIds)
   }
 }

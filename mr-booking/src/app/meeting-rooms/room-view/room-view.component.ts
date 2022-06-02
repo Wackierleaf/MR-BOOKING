@@ -72,7 +72,7 @@ export class RoomViewComponent implements OnInit, OnDestroy {
           start: TimeHelper.getDateObjectFromTimeStr(result.date, result.start).toISOString(),
           end: TimeHelper.getDateObjectFromTimeStr(result.date, result.end).toISOString(),
           eventDescription: result.eventDescription,
-          participants: result.participants
+          participants: result.participantsIds
         }
         await this.bookingService.bookRoom(booking)
       })
