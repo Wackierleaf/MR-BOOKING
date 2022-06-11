@@ -1,9 +1,8 @@
 import {Injectable} from '@angular/core';
-import {Observable} from "rxjs";
+import {map, Observable, zip} from "rxjs";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {AngularFireStorage} from "@angular/fire/compat/storage";
 import {Room} from "../interfaces/room";
-import {BookingData} from "../interfaces/booking-data";
 
 @Injectable({
   providedIn: 'root'
@@ -32,11 +31,23 @@ export class RoomsService {
   }
 
   searchRoom(searchStr: string) {
-    return this.afs.collection('rooms', ref => ref
+    const searchResByName = this.afs.collection('rooms', ref => ref
       .orderBy('name')
       .startAt(searchStr)
       .endAt(searchStr + '\uf8ff'))
       .valueChanges({idField: 'uid'})
+    const searchResByDesc = this.afs.collection('rooms', ref => ref
+      .orderBy('description')
+      .startAt(searchStr)
+      .endAt(searchStr + '\uf8ff'))
+      .valueChanges({idField: 'uid'})
+
+    return zip(searchResByName, searchResByDesc).pipe(
+      map(searchRes => {
+        const combinedRes = [...searchRes[0], ...searchRes[1]]
+        return combinedRes as Room[]
+      })
+    )
   }
 
   updateRoom(roomData: Room) {
